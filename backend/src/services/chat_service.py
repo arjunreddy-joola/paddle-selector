@@ -147,7 +147,7 @@ class ChatService:
 
     def _get_refining_questions(self, session: ChatSession) -> list:
         rqs = _DUPR_FLOW.refiningQuestions
-        if session.dupr_rating is not None and session.dupr_rating >= 7.0:
+        if session.dupr_rating is not None and session.dupr_rating >= 6.0:
             return [rq for rq in rqs if rq.questionId != "budget"]
         return list(rqs)
 

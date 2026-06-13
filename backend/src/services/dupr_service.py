@@ -45,6 +45,12 @@ class DuprService:
             overridden = self._apply_dupr_override(band, user_answers.get("playPriority", "balance"))
             return overridden, True
 
+        # When the user answered the budget question the Excel result is already budget-filtered —
+        # honour it directly instead of overriding with the primaryPool (which contains only
+        # premium paddles and would ignore the user's price constraint).
+        if "budget" in user_answers:
+            return result, False
+
         excel_top = result.recommendedForYou.productName if result.recommendedForYou else None
         if excel_top and excel_top not in band.primaryPool:
             overridden = self._apply_dupr_override(band, user_answers.get("playPriority", "balance"))
