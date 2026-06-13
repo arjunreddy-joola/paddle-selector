@@ -88,6 +88,16 @@ class SessionCompletedResponse(BaseModel):
     recommendation: RecommendationResponse
 
 
+# ── DUPR ──────────────────────────────────────────────────
+
+class DuprFlowMetadata(BaseModel):
+    duprRating: float
+    bandId: str
+    bandLabel: str
+    skillTier: str
+    duprOverridden: bool
+
+
 # ── Error ──────────────────────────────────────────────────
 
 class ErrorDetail(BaseModel):

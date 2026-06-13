@@ -31,9 +31,74 @@ class Question(BaseModel):
     options: list[QuestionOption]
 
 
+class DuprBandProductDefaults(BaseModel):
+    recommendedForYou: str | None = None
+    bestSeller: str | None = None
+    alsoConsider: list[str] = []
+
+
+class DuprBandByPlayPriority(BaseModel):
+    power: DuprBandProductDefaults = DuprBandProductDefaults()
+    control: DuprBandProductDefaults = DuprBandProductDefaults()
+    spin: DuprBandProductDefaults = DuprBandProductDefaults()
+    balance: DuprBandProductDefaults = DuprBandProductDefaults()
+
+
+class DuprBand(BaseModel):
+    id: str
+    label: str
+    minDupr: float
+    maxDupr: float
+    skillTier: str
+    theme: str
+    hiddenPlayFrequency: str
+    hiddenUpgradeOpenness: str
+    recommendationBias: str
+    explanationTemplate: str
+    primaryPool: list[str]
+    defaults: DuprBandProductDefaults
+    byPlayPriority: DuprBandByPlayPriority
+
+
+class DuprRulesFile(BaseModel):
+    version: str
+    bands: list[DuprBand]
+
+
+class DuprRefiningQuestion(BaseModel):
+    questionId: str
+    duprQuestionText: str
+    order: int
+
+
+class DuprRatingInputConfig(BaseModel):
+    id: str
+    questionText: str
+    inputType: str
+    placeholder: str
+    helperText: str
+    errorMessage: str
+    min: float
+    max: float
+    step: float
+
+
+class DuprOpeningQuestion(BaseModel):
+    id: str
+    questionText: str
+    options: list[QuestionOption]
+
+
+class DuprFlow(BaseModel):
+    openingQuestion: DuprOpeningQuestion
+    duprRatingInput: DuprRatingInputConfig
+    refiningQuestions: list[DuprRefiningQuestion]
+
+
 class QuestionsFile(BaseModel):
     version: str
     questions: list[Question]
+    duprFlow: DuprFlow | None = None
 
 
 class PaddleProduct(BaseModel):

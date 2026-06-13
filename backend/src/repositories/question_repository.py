@@ -1,5 +1,5 @@
 from src.repositories.file_repository import read_json
-from src.types.paddle_selector_types import Question, QuestionsFile
+from src.types.paddle_selector_types import DuprFlow, Question, QuestionsFile
 
 
 class QuestionRepository:
@@ -8,6 +8,13 @@ class QuestionRepository:
         parsed = QuestionsFile.model_validate(raw)
         self._questions = sorted(parsed.questions, key=lambda q: q.order)
         self._by_id = {q.id: q for q in self._questions}
+        if parsed.duprFlow:
+            sorted_refining = sorted(parsed.duprFlow.refiningQuestions, key=lambda rq: rq.order)
+            self._dupr_flow: DuprFlow | None = parsed.duprFlow.model_copy(
+                update={"refiningQuestions": sorted_refining}
+            )
+        else:
+            self._dupr_flow = None
 
     def get_all(self) -> list[Question]:
         return self._questions
@@ -17,6 +24,9 @@ class QuestionRepository:
 
     def get_lookup_questions(self) -> list[Question]:
         return [q for q in self._questions if q.usedForExactLookup]
+
+    def get_dupr_flow(self) -> DuprFlow | None:
+        return self._dupr_flow
 
     def get_next_question(self, current_id: str) -> Question | None:
         ids = [q.id for q in self._questions]

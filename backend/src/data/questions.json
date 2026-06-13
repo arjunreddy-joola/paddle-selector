@@ -101,5 +101,48 @@
         { "label": "Not sure / This is my 1st paddle", "value": "not_sure_first_paddle", "excelValue": "Not sure / This is my 1st paddle" }
       ]
     }
-  ]
+  ],
+  "duprFlow": {
+    "openingQuestion": {
+      "id": "knowsDupr",
+      "questionText": "Hey! I'm JOOLA's AI paddle advisor — let's find your perfect paddle. Do you know your DUPR rating?",
+      "options": [
+        { "label": "Yes, I know my DUPR", "value": "yes" },
+        { "label": "No, ask me questions", "value": "no" }
+      ]
+    },
+    "duprRatingInput": {
+      "id": "duprRating",
+      "questionText": "What's your DUPR rating?",
+      "inputType": "text",
+      "placeholder": "e.g. 4.5",
+      "helperText": "Enter a rating between 3.0 and 8.0",
+      "errorMessage": "Please enter a valid DUPR rating between 3.0 and 8.0",
+      "min": 3.0,
+      "max": 8.0,
+      "step": 0.1
+    },
+    "refiningQuestions": [
+      {
+        "questionId": "playPriority",
+        "duprQuestionText": "What do you want more from your paddle?",
+        "order": 1
+      },
+      {
+        "questionId": "budget",
+        "duprQuestionText": "What's your budget?",
+        "order": 2
+      },
+      {
+        "questionId": "twoHandedBackhand",
+        "duprQuestionText": "Do you use a two-handed backhand?",
+        "order": 3
+      },
+      {
+        "questionId": "gripFeel",
+        "duprQuestionText": "How does your current paddle grip feel?",
+        "order": 4
+      }
+    ]
+  }
 }

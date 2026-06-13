@@ -14,10 +14,12 @@ def _validate_data_on_startup() -> None:
     from src.repositories.question_repository import QuestionRepository
     from src.repositories.product_repository import ProductRepository
     from src.repositories.recommendation_rule_repository import RecommendationRuleRepository
+    from src.repositories.dupr_rule_repository import DuprRuleRepository
 
     q_repo = QuestionRepository()
     p_repo = ProductRepository()
     r_repo = RecommendationRuleRepository()
+    dupr_repo = DuprRuleRepository()
 
     questions = q_repo.get_all()
     lookup_fields = r_repo.get_lookup_fields()
@@ -41,9 +43,16 @@ def _validate_data_on_startup() -> None:
             "Run: python scripts/import_from_excel.py --file <path>"
         )
 
+    dupr_bands = dupr_repo.get_all()
+    dupr_flow = q_repo.get_dupr_flow()
+    if dupr_flow:
+        logger.info(f"DUPR flow enabled: {len(dupr_bands)} bands, {len(dupr_flow.refiningQuestions)} refining questions.")
+    else:
+        logger.warning("DUPR flow not configured — duprFlow section missing from questions.json.")
+
     logger.info(
         f"Startup OK: {len(questions)} questions, "
-        f"{len(p_repo.get_all())} products, {len(rules)} rules loaded."
+        f"{len(p_repo.get_all())} products, {len(rules)} rules, {len(dupr_bands)} DUPR bands loaded."
     )
 
 

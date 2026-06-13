@@ -8,11 +8,14 @@ import {
 } from "react";
 import Image from "next/image";
 import { createChatSession, sendChatMessage } from "@/lib/api";
+import { trackEvent } from "@/lib/analytics";
 import type {
   AIChatBubble,
+  DuprFlowMetadata,
   QuickReply,
   Recommendation,
   ProductResult,
+  TextInputUIHint,
 } from "@/lib/types";
 
 // ── AIAvatar ──────────────────────────────────────────────────
@@ -242,6 +245,156 @@ function ProgressIndicator({ step, total }: { step: number; total: number }) {
   );
 }
 
+// ── DuprTextInput ─────────────────────────────────────────────
+
+function DuprTextInput({
+  hint,
+  onSubmit,
+  disabled,
+}: {
+  hint: TextInputUIHint;
+  onSubmit: (value: string) => void;
+  disabled: boolean;
+}) {
+  const [value, setValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  function handleSubmit() {
+    const trimmed = value.trim();
+    if (!trimmed || disabled) return;
+    onSubmit(trimmed);
+    setValue("");
+  }
+
+  return (
+    <div
+      style={{
+        borderTop: "1px solid var(--border-strong)",
+        padding: "0.875rem 1.25rem",
+        background: "var(--surface)",
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.5rem",
+        flexShrink: 0,
+      }}
+    >
+      {hint.helperText && (
+        <span
+          style={{
+            fontSize: "0.7rem",
+            color: "var(--text-muted)",
+            fontFamily: '"FK Grotesk Mono", monospace',
+            letterSpacing: "0.04em",
+          }}
+        >
+          {hint.helperText}
+        </span>
+      )}
+      <div style={{ display: "flex", gap: "0.5rem" }}>
+        <input
+          ref={inputRef}
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+          placeholder={hint.placeholder ?? "Type your answer…"}
+          disabled={disabled}
+          style={{
+            flex: 1,
+            background: "var(--bg)",
+            border: "1px solid var(--border-strong)",
+            borderRadius: "2px",
+            color: "var(--text)",
+            fontFamily: '"FK Grotesk Neue", sans-serif',
+            fontSize: "0.9375rem",
+            padding: "0.6rem 0.875rem",
+            outline: "none",
+          }}
+        />
+        <button
+          onClick={handleSubmit}
+          disabled={disabled || !value.trim()}
+          style={{
+            background: "var(--joola-red)",
+            border: "none",
+            borderRadius: "2px",
+            color: "#fff",
+            fontFamily: '"FK Grotesk Neue", sans-serif',
+            fontWeight: 700,
+            fontSize: "0.875rem",
+            padding: "0.6rem 1.125rem",
+            cursor: disabled || !value.trim() ? "default" : "pointer",
+            opacity: disabled || !value.trim() ? 0.5 : 1,
+          }}
+        >
+          →
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── DuprBadge ─────────────────────────────────────────────────
+
+function DuprBadge({ meta }: { meta: DuprFlowMetadata }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "0.5rem",
+        marginBottom: "0.75rem",
+        padding: "0.5rem 0.875rem",
+        background: "rgba(245,230,37,0.08)",
+        border: "1px solid rgba(245,230,37,0.2)",
+        borderRadius: "4px",
+      }}
+    >
+      <span
+        style={{
+          fontFamily: '"FK Grotesk Mono", monospace',
+          fontSize: "0.625rem",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "var(--joola-yellow)",
+        }}
+      >
+        DUPR {meta.duprRating}
+      </span>
+      <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
+      <span
+        style={{
+          fontFamily: '"FK Grotesk Neue", sans-serif',
+          fontSize: "0.75rem",
+          color: "var(--text-2)",
+        }}
+      >
+        {meta.bandLabel}
+      </span>
+      {meta.duprOverridden && (
+        <>
+          <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
+          <span
+            style={{
+              fontFamily: '"FK Grotesk Mono", monospace',
+              fontSize: "0.6rem",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "var(--joola-red)",
+            }}
+          >
+            Skill-matched
+          </span>
+        </>
+      )}
+    </div>
+  );
+}
+
 // ── PaddleCardInline ──────────────────────────────────────────
 
 const SHOP_FALLBACK = "https://joola.com/collections/pickleball-paddles";
@@ -430,10 +583,12 @@ function CollectionsRow() {
 function RecommendationSection({
   rec,
   summary,
+  duprMeta,
   onRestart,
 }: {
   rec: Recommendation;
   summary?: string | null;
+  duprMeta?: DuprFlowMetadata | null;
   onRestart: () => void;
 }) {
   const hasDifferentBestSeller =
@@ -442,6 +597,7 @@ function RecommendationSection({
 
   return (
     <div className="animate-fade-up" style={{ marginTop: "1rem" }}>
+      {duprMeta && <DuprBadge meta={duprMeta} />}
       {/* Match hero banner */}
       <div
         style={{
@@ -599,9 +755,8 @@ function RecommendationSection({
 type Phase = "loading" | "active" | "thinking" | "complete" | "error";
 
 const OPENING_CHIPS: QuickReply[] = [
-  { label: "Occasionally", value: "occasionally" },
-  { label: "Weekly", value: "weekly" },
-  { label: "Multiple times a week", value: "multiple_times_per_week" },
+  { label: "Yes, I know my DUPR", value: "yes" },
+  { label: "No, ask me questions", value: "no" },
 ];
 
 export default function HomePage() {
@@ -613,9 +768,11 @@ export default function HomePage() {
 
   const [recommendation, setRecommendation] = useState<Recommendation | null>(null);
   const [summary, setSummary] = useState<string | null>(null);
+  const [duprMeta, setDuprMeta] = useState<DuprFlowMetadata | null>(null);
 
   const [progressStep, setProgressStep] = useState<number>(0);
   const [progressTotal, setProgressTotal] = useState<number>(6);
+  const [textInputHint, setTextInputHint] = useState<TextInputUIHint | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -625,8 +782,10 @@ export default function HomePage() {
     setPhase("loading");
     setRecommendation(null);
     setSummary(null);
+    setDuprMeta(null);
     setProgressStep(0);
     setProgressTotal(6);
+    setTextInputHint(null);
 
     createChatSession()
       .then((session) => {
@@ -677,19 +836,37 @@ export default function HomePage() {
         };
         setBubbles((prev) => [...prev, newBubble]);
 
-        if (result.uiHint) {
-          const hint = result.uiHint;
-          if ("progressStep" in hint && hint.progressStep != null) {
-            setProgressStep(hint.progressStep);
-          }
-          if ("progressTotal" in hint && hint.progressTotal != null) {
-            setProgressTotal(hint.progressTotal);
+        if (result.uiHint?.type === "text_input") {
+          setTextInputHint(result.uiHint);
+          setProgressStep(0);
+        } else {
+          setTextInputHint(null);
+          if (result.uiHint?.type === "chips") {
+            const hint = result.uiHint;
+            if (hint.progressStep != null) setProgressStep(hint.progressStep);
+            if (hint.progressTotal != null) setProgressTotal(hint.progressTotal);
           }
         }
 
         if (result.isComplete) {
           setRecommendation(result.recommendation);
           setSummary(result.summary ?? null);
+          if (result.duprMetadata) {
+            setDuprMeta(result.duprMetadata);
+            trackEvent({
+              event: "recommendation_shown",
+              recommendedPaddle: result.recommendation?.recommendedForYou?.productName ?? "",
+              duprOverridden: result.duprMetadata.duprOverridden,
+              flow: "dupr",
+            });
+          } else {
+            trackEvent({
+              event: "recommendation_shown",
+              recommendedPaddle: result.recommendation?.recommendedForYou?.productName ?? "",
+              duprOverridden: false,
+              flow: "standard",
+            });
+          }
           setPhase("complete");
         } else {
           setPhase("active");
@@ -710,6 +887,9 @@ export default function HomePage() {
   );
 
   function handleChipSelect(value: string, label: string) {
+    if (bubbles.length === 1 && bubbles[0].id === "open") {
+      trackEvent({ event: value === "yes" ? "dupr_flow_started" : "standard_flow_started" });
+    }
     handleSendMessage(value, label);
   }
 
@@ -877,6 +1057,7 @@ export default function HomePage() {
             <RecommendationSection
               rec={recommendation}
               summary={summary}
+              duprMeta={duprMeta}
               onRestart={handleRestart}
             />
           )}
@@ -908,6 +1089,14 @@ export default function HomePage() {
 
           <div ref={messagesEndRef} />
         </div>
+
+        {textInputHint && phase === "active" && (
+          <DuprTextInput
+            hint={textInputHint}
+            onSubmit={(v) => handleSendMessage(v, v)}
+            disabled={phase !== "active"}
+          />
+        )}
       </main>
 
       <style>{`

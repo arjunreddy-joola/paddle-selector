@@ -1,0 +1,438 @@
+{
+  "version": "1.0.0",
+  "description": "DUPR rating bands with paddle recommendations, hidden answer mappings, and play-priority overrides. Edit this file to update recommendations without touching application code.",
+  "bands": [
+    {
+      "id": "band_1",
+      "label": "Beginner–Intermediate",
+      "minDupr": 3.0,
+      "maxDupr": 3.4,
+      "skillTier": "Beginner–Intermediate",
+      "theme": "Forgiveness, control, consistency, easy learning",
+      "hiddenPlayFrequency": "occasionally",
+      "hiddenUpgradeOpenness": "maybe",
+      "recommendationBias": "forgiving control and easy consistency",
+      "explanationTemplate": "At a {dupr} DUPR, you'll usually benefit most from a paddle that helps with consistency, control, and forgiveness while still giving you room to grow.",
+      "primaryPool": [
+        "Agassi Champion 12mm",
+        "Graf Champion",
+        "JOOLA Vision CGS 3S 14mm",
+        "JOOLA Vision CGS 3S 16mm",
+        "JOOLA Ben Johns Hyperion Gen 1 16mm",
+        "Agassi Edge Heat Vision",
+        "Perseus Heat Vision"
+      ],
+      "defaults": {
+        "recommendedForYou": "Agassi Champion 12mm",
+        "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+        "alsoConsider": [
+          "Graf Champion",
+          "JOOLA Vision CGS 3S 16mm",
+          "Perseus Heat Vision"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Agassi Edge Heat Vision",
+          "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+          "alsoConsider": ["Agassi Champion 12mm", "Graf Champion", "JOOLA Vision CGS 3S 14mm"]
+        },
+        "control": {
+          "recommendedForYou": "JOOLA Vision CGS 3S 16mm",
+          "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+          "alsoConsider": ["Agassi Champion 12mm", "Graf Champion", "JOOLA Vision CGS 3S 14mm"]
+        },
+        "spin": {
+          "recommendedForYou": "JOOLA Vision CGS 3S 14mm",
+          "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+          "alsoConsider": ["JOOLA Vision CGS 3S 16mm", "Agassi Champion 12mm", "Perseus Heat Vision"]
+        },
+        "balance": {
+          "recommendedForYou": "Agassi Champion 12mm",
+          "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+          "alsoConsider": ["Graf Champion", "JOOLA Vision CGS 3S 16mm", "Perseus Heat Vision"]
+        }
+      }
+    },
+    {
+      "id": "band_2",
+      "label": "Intermediate",
+      "minDupr": 3.5,
+      "maxDupr": 3.9,
+      "skillTier": "Intermediate",
+      "theme": "Versatile performance, more spin/control, still forgiving",
+      "hiddenPlayFrequency": "weekly",
+      "hiddenUpgradeOpenness": "maybe",
+      "recommendationBias": "balanced performance, control, spin, room to grow",
+      "explanationTemplate": "At a {dupr} DUPR, you're at an intermediate level where a versatile paddle with solid control and spin will help you develop your game further.",
+      "primaryPool": [
+        "Agassi Edge Heat Vision",
+        "Perseus Heat Vision",
+        "Scorpeus Heat Vision",
+        "JOOLA Vision CGS 3S 16mm",
+        "JOOLA Ben Johns Hyperion Gen 1 16mm",
+        "Scorpeus Double Vision",
+        "Hyperion Double Vision"
+      ],
+      "defaults": {
+        "recommendedForYou": "Agassi Edge Heat Vision",
+        "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+        "alsoConsider": [
+          "Perseus Heat Vision",
+          "Scorpeus Heat Vision",
+          "Hyperion Double Vision"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Agassi Edge Heat Vision",
+          "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+          "alsoConsider": ["Perseus Heat Vision", "Hyperion Double Vision", "Scorpeus Double Vision"]
+        },
+        "control": {
+          "recommendedForYou": "Scorpeus Heat Vision",
+          "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+          "alsoConsider": ["JOOLA Vision CGS 3S 16mm", "Scorpeus Double Vision", "Perseus Heat Vision"]
+        },
+        "spin": {
+          "recommendedForYou": "Perseus Heat Vision",
+          "bestSeller": "Scorpeus Heat Vision",
+          "alsoConsider": ["JOOLA Vision CGS 3S 14mm", "Scorpeus Double Vision", "Agassi Edge Heat Vision"]
+        },
+        "balance": {
+          "recommendedForYou": "Perseus Heat Vision",
+          "bestSeller": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+          "alsoConsider": ["Agassi Edge Heat Vision", "Scorpeus Heat Vision", "Hyperion Double Vision"]
+        }
+      }
+    },
+    {
+      "id": "band_3",
+      "label": "Strong Intermediate",
+      "minDupr": 4.0,
+      "maxDupr": 4.4,
+      "skillTier": "Strong intermediate / competitive club player",
+      "theme": "Performance upgrade, all-court control, spin, stability",
+      "hiddenPlayFrequency": "weekly",
+      "hiddenUpgradeOpenness": "yes",
+      "recommendationBias": "performance paddle, spin, stability, control/power balance",
+      "explanationTemplate": "At a {dupr} DUPR, you're a competitive club player who benefits from a performance paddle with strong spin, stability, and all-court control.",
+      "primaryPool": [
+        "Perseus Heat Vision",
+        "Scorpeus Heat Vision",
+        "Hyperion 3S Dual",
+        "Perseus 3S Dual",
+        "Scorpeus 3S Dual",
+        "Hyperion Pro IV",
+        "Perseus Pro IV",
+        "Magnus 3S Dual"
+      ],
+      "defaults": {
+        "recommendedForYou": "Perseus Heat Vision",
+        "bestSeller": "Hyperion 3S Dual",
+        "alsoConsider": [
+          "Scorpeus Heat Vision",
+          "Perseus 3S Dual",
+          "Hyperion Pro IV"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Magnus 3S Dual",
+          "bestSeller": "Hyperion 3S Dual",
+          "alsoConsider": ["Perseus 3S Dual", "Perseus Heat Vision", "Hyperion Pro IV"]
+        },
+        "control": {
+          "recommendedForYou": "Scorpeus 3S Dual",
+          "bestSeller": "Scorpeus Heat Vision",
+          "alsoConsider": ["Perseus Pro IV", "Hyperion Pro IV", "Perseus Heat Vision"]
+        },
+        "spin": {
+          "recommendedForYou": "Perseus Heat Vision",
+          "bestSeller": "Hyperion 3S Dual",
+          "alsoConsider": ["Scorpeus 3S Dual", "Perseus 3S Dual", "Scorpeus Heat Vision"]
+        },
+        "balance": {
+          "recommendedForYou": "Hyperion 3S Dual",
+          "bestSeller": "Perseus Heat Vision",
+          "alsoConsider": ["Perseus 3S Dual", "Hyperion Pro IV", "Scorpeus 3S Dual"]
+        }
+      }
+    },
+    {
+      "id": "band_4",
+      "label": "Advanced",
+      "minDupr": 4.5,
+      "maxDupr": 4.9,
+      "skillTier": "Advanced",
+      "theme": "Advanced performance, premium paddle families, play-style specific recommendation",
+      "hiddenPlayFrequency": "weekly",
+      "hiddenUpgradeOpenness": "yes",
+      "recommendationBias": "advanced performance, premium paddle families, style-specific recommendation",
+      "explanationTemplate": "At a {dupr} DUPR, you're an advanced player who benefits from premium, high-performance paddles tuned to your specific play style.",
+      "primaryPool": [
+        "Hyperion 3S Dual",
+        "Perseus 3S Dual",
+        "Scorpeus 3S Dual",
+        "Magnus 3S Dual",
+        "Hyperion Pro IV",
+        "Perseus Pro IV",
+        "Scorpeus Pro IV",
+        "Kosmos PRO V",
+        "Agassi PRO V",
+        "Graf PRO V"
+      ],
+      "defaults": {
+        "recommendedForYou": "Hyperion 3S Dual",
+        "bestSeller": "Kosmos PRO V",
+        "alsoConsider": [
+          "Perseus 3S Dual",
+          "Hyperion Pro IV",
+          "Perseus Pro IV"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Magnus 3S Dual",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Hyperion 3S Dual", "Agassi PRO V", "Graf PRO V"]
+        },
+        "control": {
+          "recommendedForYou": "Scorpeus Pro IV",
+          "bestSeller": "Scorpeus 3S Dual",
+          "alsoConsider": ["Perseus Pro IV", "Hyperion Pro IV", "Kosmos PRO V"]
+        },
+        "spin": {
+          "recommendedForYou": "Scorpeus 3S Dual",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Perseus 3S Dual", "Scorpeus Pro IV", "Perseus Pro IV"]
+        },
+        "balance": {
+          "recommendedForYou": "Hyperion 3S Dual",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Perseus 3S Dual", "Hyperion Pro IV", "Perseus Pro IV"]
+        }
+      }
+    },
+    {
+      "id": "band_5",
+      "label": "High Advanced / Tournament",
+      "minDupr": 5.0,
+      "maxDupr": 5.4,
+      "skillTier": "High advanced / tournament player",
+      "theme": "Premium performance, advanced spin, power/control tuning",
+      "hiddenPlayFrequency": "multiple_times_per_week",
+      "hiddenUpgradeOpenness": "yes",
+      "recommendationBias": "premium performance, high spin, stronger power/control tuning",
+      "explanationTemplate": "Your {dupr} DUPR rating suggests you play frequently at a high level and can benefit from a premium paddle with stronger spin, stability, and power/control response.",
+      "primaryPool": [
+        "Kosmos PRO V",
+        "Perseus PRO V",
+        "Hyperion PRO V",
+        "Scorpeus PRO V",
+        "Agassi PRO V",
+        "Graf PRO V",
+        "Perseus 3S Dual",
+        "Hyperion 3S Dual",
+        "Magnus 3S Dual",
+        "Scorpeus 3S Dual",
+        "Perseus PRO V Simone"
+      ],
+      "defaults": {
+        "recommendedForYou": "Kosmos PRO V",
+        "bestSeller": "Hyperion 3S Dual",
+        "alsoConsider": [
+          "Perseus PRO V",
+          "Hyperion PRO V",
+          "Scorpeus PRO V"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Kosmos PRO V",
+          "bestSeller": "Hyperion 3S Dual",
+          "alsoConsider": ["Magnus 3S Dual", "Agassi PRO V", "Graf PRO V"]
+        },
+        "control": {
+          "recommendedForYou": "Scorpeus PRO V",
+          "bestSeller": "Scorpeus 3S Dual",
+          "alsoConsider": ["Perseus PRO V", "Perseus Pro IV", "Perseus PRO V Simone"]
+        },
+        "spin": {
+          "recommendedForYou": "Perseus PRO V Simone",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Scorpeus PRO V", "Perseus 3S Dual", "Hyperion PRO V"]
+        },
+        "balance": {
+          "recommendedForYou": "Hyperion PRO V",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Perseus PRO V", "Hyperion 3S Dual", "Perseus 3S Dual"]
+        }
+      }
+    },
+    {
+      "id": "band_6",
+      "label": "Elite Amateur / Semi-Pro",
+      "minDupr": 5.5,
+      "maxDupr": 5.9,
+      "skillTier": "Elite amateur / semi-pro",
+      "theme": "Top-tier precision, stability, pro-style play",
+      "hiddenPlayFrequency": "multiple_times_per_week",
+      "hiddenUpgradeOpenness": "yes",
+      "recommendationBias": "pro-level control, power, stability, precision",
+      "explanationTemplate": "At a {dupr} DUPR, you're playing at an elite amateur level. You need a pro-grade paddle with precision control, stability, and the ability to execute at the highest consistency.",
+      "primaryPool": [
+        "Kosmos PRO V",
+        "Perseus PRO V",
+        "Hyperion PRO V",
+        "Scorpeus PRO V",
+        "Perseus PRO V Simone",
+        "Magnus 3S Dual",
+        "Perseus 3S Dual",
+        "Hyperion 3S Dual",
+        "Scorpeus 3S Dual",
+        "Simone Hyperion Pro IV"
+      ],
+      "defaults": {
+        "recommendedForYou": "Kosmos PRO V",
+        "bestSeller": "Hyperion 3S Dual",
+        "alsoConsider": [
+          "Perseus PRO V",
+          "Hyperion PRO V",
+          "Scorpeus PRO V"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Kosmos PRO V",
+          "bestSeller": "Hyperion 3S Dual",
+          "alsoConsider": ["Magnus 3S Dual", "Perseus PRO V", "Agassi PRO V"]
+        },
+        "control": {
+          "recommendedForYou": "Scorpeus PRO V",
+          "bestSeller": "Perseus PRO V",
+          "alsoConsider": ["Simone Hyperion Pro IV", "Scorpeus 3S Dual", "Perseus PRO V Simone"]
+        },
+        "spin": {
+          "recommendedForYou": "Perseus PRO V Simone",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Scorpeus PRO V", "Hyperion PRO V", "Simone Hyperion Pro IV"]
+        },
+        "balance": {
+          "recommendedForYou": "Hyperion PRO V",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Perseus PRO V", "Perseus 3S Dual", "Hyperion 3S Dual"]
+        }
+      }
+    },
+    {
+      "id": "band_7",
+      "label": "Elite / Pro-Level",
+      "minDupr": 6.0,
+      "maxDupr": 6.9,
+      "skillTier": "Elite / pro-level",
+      "theme": "Pro-level paddle, high-performance only, advanced style matching",
+      "hiddenPlayFrequency": "multiple_times_per_week",
+      "hiddenUpgradeOpenness": "yes",
+      "recommendationBias": "top-tier paddle families, PRO V, 3S Dual, Pro IV, power/control/spin specific",
+      "explanationTemplate": "At a {dupr} DUPR, you're playing at an elite level. Only the highest-performance JOOLA paddles match your game — precision, stability, and pro-grade response are essential.",
+      "primaryPool": [
+        "Kosmos PRO V",
+        "Perseus PRO V",
+        "Hyperion PRO V",
+        "Scorpeus PRO V",
+        "Perseus PRO V Simone",
+        "Magnus 3S Dual",
+        "Perseus 3S Dual",
+        "Hyperion 3S Dual",
+        "Scorpeus 3S Dual",
+        "Simone Hyperion Pro IV"
+      ],
+      "defaults": {
+        "recommendedForYou": "Kosmos PRO V",
+        "bestSeller": "Hyperion 3S Dual",
+        "alsoConsider": [
+          "Perseus PRO V",
+          "Hyperion PRO V",
+          "Scorpeus PRO V"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Kosmos PRO V",
+          "bestSeller": "Hyperion 3S Dual",
+          "alsoConsider": ["Magnus 3S Dual", "Perseus PRO V", "Agassi PRO V"]
+        },
+        "control": {
+          "recommendedForYou": "Scorpeus PRO V",
+          "bestSeller": "Perseus PRO V",
+          "alsoConsider": ["Simone Hyperion Pro IV", "Scorpeus 3S Dual", "Perseus PRO V Simone"]
+        },
+        "spin": {
+          "recommendedForYou": "Perseus PRO V Simone",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Scorpeus PRO V", "Hyperion PRO V", "Simone Hyperion Pro IV"]
+        },
+        "balance": {
+          "recommendedForYou": "Hyperion PRO V",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Perseus PRO V", "Perseus 3S Dual", "Hyperion 3S Dual"]
+        }
+      }
+    },
+    {
+      "id": "band_8",
+      "label": "Pro / Elite",
+      "minDupr": 7.0,
+      "maxDupr": 8.0,
+      "skillTier": "Pro / elite",
+      "theme": "Highest-performance JOOLA paddle recommendations only",
+      "hiddenPlayFrequency": "multiple_times_per_week",
+      "hiddenUpgradeOpenness": "yes",
+      "recommendationBias": "highest-performance JOOLA paddles only, tournament/pro-level recommendation",
+      "explanationTemplate": "At a {dupr} DUPR, you're competing at a professional level. Only the top-tier JOOLA paddles can match your game — built for power, spin precision, and competitive consistency.",
+      "primaryPool": [
+        "Kosmos PRO V",
+        "Perseus PRO V",
+        "Hyperion PRO V",
+        "Scorpeus PRO V",
+        "Perseus PRO V Simone",
+        "Magnus 3S Dual",
+        "Perseus 3S Dual",
+        "Hyperion 3S Dual",
+        "Scorpeus 3S Dual"
+      ],
+      "defaults": {
+        "recommendedForYou": "Kosmos PRO V",
+        "bestSeller": "Hyperion 3S Dual",
+        "alsoConsider": [
+          "Perseus PRO V",
+          "Hyperion PRO V",
+          "Scorpeus PRO V"
+        ]
+      },
+      "byPlayPriority": {
+        "power": {
+          "recommendedForYou": "Kosmos PRO V",
+          "bestSeller": "Hyperion 3S Dual",
+          "alsoConsider": ["Magnus 3S Dual", "Perseus PRO V", "Agassi PRO V"]
+        },
+        "control": {
+          "recommendedForYou": "Scorpeus PRO V",
+          "bestSeller": "Perseus PRO V",
+          "alsoConsider": ["Scorpeus 3S Dual", "Perseus PRO V Simone", "Simone Hyperion Pro IV"]
+        },
+        "spin": {
+          "recommendedForYou": "Perseus PRO V Simone",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Scorpeus PRO V", "Hyperion PRO V", "Perseus PRO V"]
+        },
+        "balance": {
+          "recommendedForYou": "Hyperion PRO V",
+          "bestSeller": "Kosmos PRO V",
+          "alsoConsider": ["Perseus PRO V", "Perseus 3S Dual", "Hyperion 3S Dual"]
+        }
+      }
+    }
+  ]
+}

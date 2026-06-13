@@ -96,7 +96,23 @@ export interface ChipsUIHint {
   progressTotal?: number;
 }
 
-export type UIHint = ChipsUIHint;
+export interface TextInputUIHint {
+  type: "text_input";
+  placeholder?: string;
+  helperText?: string;
+  min?: number;
+  max?: number;
+}
+
+export type UIHint = ChipsUIHint | TextInputUIHint;
+
+export interface DuprFlowMetadata {
+  duprRating: number;
+  bandId: string;
+  bandLabel: string;
+  skillTier: string;
+  duprOverridden: boolean;
+}
 
 // ── AI Chat types ───────────────────────────────────────────
 
@@ -113,6 +129,7 @@ export interface AIChatMessageResponse {
   summary: string | null;
   recommendation: Recommendation | null;
   uiHint?: UIHint | null;
+  duprMetadata?: DuprFlowMetadata | null;
 }
 
 export interface AIChatBubble {
