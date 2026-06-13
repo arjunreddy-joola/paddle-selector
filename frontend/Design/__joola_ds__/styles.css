@@ -1,0 +1,7 @@
+/* ============================================================
+   JOOLA Design System — root stylesheet
+   Single entry point. Consumers link THIS file:
+     <link rel="stylesheet" href="styles.css">
+   It pulls in the token + type layer below.
+   ============================================================ */
+@import url('colors_and_type.css');

@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* ─── FK Grotesk Neue ──────────────────────────────────────────── */
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-Italic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Neue";
+  src: url("/fonts/FKGroteskNeue-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FK Grotesk Mono";
+  src: url("/fonts/FKGroteskMono-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Tailwind v4 Theme Extension ─────────────────────────────── */
+
+@theme inline {
+  --font-sans: "FK Grotesk Neue", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "FK Grotesk Mono", ui-monospace, "SF Mono", monospace;
+
+  /* JOOLA brand palette available as Tailwind utilities */
+  --color-joola-red: #d6182a;
+  --color-joola-yellow: #f5e625;
+  --color-joola-black: #0a0a0a;
+  --color-joola-blue: #0053a5;
+
+  /* App surface scale — light */
+  --color-app-bg: #ffffff;
+  --color-app-surface: #f8f8f8;
+  --color-app-surface-2: #f0f0f0;
+  --color-app-surface-3: #e4e4e4;
+}
+
+/* ─── JOOLA CSS Tokens — light theme ──────────────────────────── */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --surface-2: #f0f0f0;
+  --surface-3: #e4e4e4;
+  --text: #0a0a0a;
+  --text-2: #555555;
+  --text-muted: #999999;
+  --border: rgba(0 0 0 / 0.07);
+  --border-strong: rgba(0 0 0 / 0.16);
+  --joola-red: #d6182a;
+  --joola-yellow: #f5e625;
+  --joola-black: #0a0a0a;
+  --joola-blue: #0053a5;
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --radius-bubble: 18px;
+}
+
+/* ─── Base Reset ───────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #ffffff;
+  color: var(--text);
+  font-family: "FK Grotesk Neue", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  height: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--text);
+  min-height: 100dvh;
+  margin: 0;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 2px;
+}
+
+/* ─── Utility Classes ────────────────────────────────────────────── */
+
+.label-overline {
+  font-family: "FK Grotesk Mono", monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--joola-red);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #fff 0%, rgba(255 255 255 / 0.7) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Animations ─────────────────────────────────────────────────── */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease both;
+}

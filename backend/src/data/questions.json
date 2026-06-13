@@ -1,0 +1,105 @@
+{
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "skillLevel",
+      "order": 0,
+      "category": "Player Level + Profile",
+      "questionText": "What's your skill level?",
+      "profileOnly": true,
+      "usedForExactLookup": false,
+      "options": [
+        { "label": "Beginner", "value": "beginner" },
+        { "label": "Intermediate", "value": "intermediate" },
+        { "label": "Advanced", "value": "advanced" }
+      ]
+    },
+    {
+      "id": "playFrequency",
+      "order": 1,
+      "category": "Player Level + Profile",
+      "questionText": "How often do you play?",
+      "profileOnly": false,
+      "usedForExactLookup": true,
+      "excelColumn": "Q1: How often do you play?",
+      "options": [
+        { "label": "Occasionally", "value": "occasionally", "excelValue": "Occasionally" },
+        { "label": "Weekly", "value": "weekly", "excelValue": "Weekly" },
+        { "label": "Multiple times per week", "value": "multiple_times_per_week", "excelValue": "Multiple times per week" }
+      ]
+    },
+    {
+      "id": "budget",
+      "order": 2,
+      "category": "Price Sensitivity",
+      "questionText": "What's your budget?",
+      "profileOnly": false,
+      "usedForExactLookup": true,
+      "excelColumn": "Q2: What's your budget?",
+      "options": [
+        { "label": "Under $100", "value": "under_100", "excelValue": "Under $100" },
+        { "label": "$100–$200", "value": "100_200", "excelValue": "$100–$200" },
+        { "label": "$200+ premium performance", "value": "200_plus", "excelValue": "$200+ (premium performance)" },
+        { "label": "No budget limit", "value": "no_budget", "excelValue": "No budget" }
+      ]
+    },
+    {
+      "id": "playPriority",
+      "order": 3,
+      "category": "Play Style",
+      "questionText": "When you play, what matters most?",
+      "profileOnly": false,
+      "usedForExactLookup": true,
+      "excelColumn": "Q3: What matters most to you?",
+      "options": [
+        { "label": "Power", "value": "power", "excelValue": "Power" },
+        { "label": "Control", "value": "control", "excelValue": "Control" },
+        { "label": "Balance", "value": "balance", "excelValue": "Balanced" },
+        { "label": "Spin", "value": "spin", "excelValue": "Spin" }
+      ]
+    },
+    {
+      "id": "twoHandedBackhand",
+      "order": 4,
+      "category": "Feel & Comfort",
+      "questionText": "Do you use a two-handed backhand?",
+      "profileOnly": false,
+      "usedForExactLookup": true,
+      "excelColumn": "Q4: Do you use a two-handed backhand?",
+      "options": [
+        { "label": "Yes", "value": "yes", "excelValue": "Yes" },
+        { "label": "No", "value": "no", "excelValue": "No" },
+        { "label": "Sometimes", "value": "sometimes", "excelValue": "Sometimes" }
+      ]
+    },
+    {
+      "id": "upgradeOpenness",
+      "order": 5,
+      "category": "Price Sensitivity",
+      "questionText": "Are you open to upgrading if it improves your performance?",
+      "profileOnly": false,
+      "usedForExactLookup": true,
+      "excelColumn": "Q5: Are you open to upgrading if it improves performance?",
+      "options": [
+        { "label": "Yes, definitely", "value": "yes", "excelValue": "Yes" },
+        { "label": "Maybe", "value": "maybe", "excelValue": "Maybe" },
+        { "label": "No, I'm happy with my budget", "value": "no", "excelValue": "No" }
+      ]
+    },
+    {
+      "id": "gripFeel",
+      "order": 6,
+      "category": "Grip Circumference",
+      "questionText": "How does your current paddle grip feel?",
+      "profileOnly": false,
+      "usedForExactLookup": true,
+      "excelColumn": "Q6: How does your current paddle grip feel?",
+      "options": [
+        { "label": "Small — too narrow", "value": "small", "excelValue": "Small" },
+        { "label": "Average / Just right", "value": "average", "excelValue": "Average / Just right" },
+        { "label": "Large — too wide", "value": "large", "excelValue": "Large" },
+        { "label": "Not sure / This is my 1st paddle", "value": "not_sure_first_paddle", "excelValue": "Not sure / This is my 1st paddle" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/joola-design-system-test-27aba508-9d01-4538-9980-0ea90ed7c44c/tokens.css">
+  <script src="_ds/joola-design-system-test-27aba508-9d01-4538-9980-0ea90ed7c44c/_ds_bundle.js"></script>
+  <style>
+    *{box-sizing:border-box;}
+    html,body{margin:0;}
+    @keyframes psBubble{from{opacity:0;transform:translateY(10px) scale(.97);}to{opacity:1;transform:none;}}
+    @keyframes psFadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+    @keyframes psBlink{0%,80%,100%{opacity:.28;transform:translateY(0);}40%{opacity:1;transform:translateY(-3px);}}
+    @keyframes psSheet{from{transform:translateY(100%);}to{transform:none;}}
+    @keyframes psScrim{from{opacity:0;}to{opacity:1;}}
+    @keyframes psGlow{0%,100%{opacity:.45;transform:scale(1);}50%{opacity:.8;transform:scale(1.06);}}
+    .ps-scroll::-webkit-scrollbar{width:5px;}
+    .ps-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:99px;}
+    .ps-scroll::-webkit-scrollbar-track{background:transparent;}
+  </style>
+</helmet>
+
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" rx="24" fill="#0e0e12"/>
+    <ellipse cx="46" cy="42" rx="19" ry="21" fill="#e0202f"/>
+    <rect x="41" y="58" width="10" height="22" rx="4" fill="#b00d1c"/>
+    <circle cx="72" cy="30" r="7.5" fill="#f5e625"/>
+  </svg>
+</template>
+
+<div style="min-height:100vh;width:100%;background:radial-gradient(125% 80% at 50% -8%,#26262c 0%,#101013 46%,#070708 100%);font-family:var(--md-sys-typescale-font-brand);padding:44px 20px 72px;display:flex;flex-direction:column;align-items:center;gap:30px;">
+
+  <!-- ───────── HEADER ───────── -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;">
+    <img src="assets/JOOLA_Lockup_Horizontal_Black.png" alt="JOOLA" style="height:24px;width:auto;filter:invert(1);opacity:.95;">
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <div style="font-family:var(--md-sys-typescale-font-mono);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:#ff5a5a;">Paddle Selector</div>
+      <div style="font-size:14px;color:#9A9B9F;letter-spacing:.01em;">Answer a few quick questions — get your match.</div>
+    </div>
+  </div>
+
+  <!-- ───────── PHONE ───────── -->
+  <div style="position:relative;">
+    <div style="position:absolute;inset:-60px -30px;background:radial-gradient(closest-side,rgba(214,24,42,.30),transparent 70%);filter:blur(20px);z-index:0;animation:psGlow 6s ease-in-out infinite;"></div>
+
+    <div style="position:relative;z-index:1;width:392px;padding:13px;border-radius:60px;background:linear-gradient(155deg,#3a3a40 0%,#161618 28%,#0a0a0b 70%,#202024 100%);box-shadow:0 60px 120px -28px rgba(0,0,0,.85),0 30px 60px -34px rgba(0,0,0,.9),inset 0 0 0 1.5px rgba(255,255,255,.05),inset 0 2px 1px rgba(255,255,255,.16),inset 0 -3px 3px rgba(0,0,0,.7);">
+
+      <div style="position:relative;width:366px;height:788px;border-radius:47px;overflow:hidden;background:linear-gradient(180deg,#0c0c0f 0%,#08080a 100%);box-shadow:inset 0 0 0 2px #000;display:flex;flex-direction:column;">
+
+        <!-- dynamic island -->
+        <div style="position:absolute;top:11px;left:50%;transform:translateX(-50%);width:112px;height:32px;background:#000;border-radius:18px;z-index:30;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;">
+          <div style="width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#23303a,#070b0e);box-shadow:inset 0 0 2px rgba(90,150,200,.5);"></div>
+        </div>
+
+        <!-- status bar -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:15px 26px 0;height:50px;flex:none;color:#fff;z-index:20;">
+          <span style="font-size:14px;font-weight:600;letter-spacing:.02em;">9:41</span>
+          <span style="display:flex;align-items:center;gap:6px;">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="4.5" width="3" height="7.5" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="17" height="12" viewBox="0 0 17 13" fill="none"><path d="M8.5 3.2c2.1 0 4 .8 5.4 2.1l1.6-1.6C13.6 1.9 11.1.9 8.5.9S3.4 1.9 1.5 3.7l1.6 1.6C4.5 4 6.4 3.2 8.5 3.2Z" fill="#fff"/><path d="M8.5 6.6c1.2 0 2.3.5 3.1 1.2l1.6-1.6C12 5 10.3 4.3 8.5 4.3S5 5 3.8 6.2l1.6 1.6c.8-.7 1.9-1.2 3.1-1.2Z" fill="#fff"/><path d="M8.5 9.7 10.6 7.6c-.6-.5-1.3-.8-2.1-.8s-1.5.3-2.1.8L8.5 9.7Z" fill="#fff"/></svg>
+            <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1" width="21" height="11" rx="3" stroke="#fff" stroke-opacity=".5" stroke-width="1"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4.5" width="2" height="4" rx="1" fill="#fff" fill-opacity=".5"/></svg>
+          </span>
+        </div>
+
+        <!-- app top bar -->
+        <div style="flex:none;padding:6px 16px 0;z-index:15;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;height:42px;">
+            <sc-if value="{{ backVisible }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ onChange }}" aria-label="Go back to previous question" style="width:38px;height:38px;flex:none;border:none;border-radius:50%;background:rgba(255,255,255,.06);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:rgba(255,255,255,.13);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+            </sc-if>
+            <sc-if value="{{ backHidden }}" hint-placeholder-val="{{ true }}">
+              <div style="width:38px;height:38px;flex:none;"></div>
+            </sc-if>
+
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;">
+              <div style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#7C7D81;">JOOLA Coach</div>
+              <sc-if value="{{ showProgress }}" hint-placeholder-val="{{ true }}">
+                <div style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.01em;">{{ progressLabel }}</div>
+              </sc-if>
+              <sc-if value="{{ hideProgress }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.01em;">{{ subtitleLabel }}</div>
+              </sc-if>
+            </div>
+
+            <sc-if value="{{ restartVisible }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ onAskRestart }}" aria-label="Restart the paddle selector" style="width:38px;height:38px;flex:none;border:none;border-radius:50%;background:rgba(255,255,255,.06);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;" style-hover="background:rgba(255,255,255,.13);">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              </button>
+            </sc-if>
+            <sc-if value="{{ restartHidden }}" hint-placeholder-val="{{ true }}">
+              <div style="width:38px;height:38px;flex:none;"></div>
+            </sc-if>
+          </div>
+          <!-- progress track -->
+          <sc-if value="{{ showProgress }}" hint-placeholder-val="{{ true }}">
+            <div style="height:4px;width:100%;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin-top:4px;">{{ progressFill }}</div>
+          </sc-if>
+        </div>
+
+        <!-- SCROLL AREA -->
+        <div ref="{{ chatRef }}" class="ps-scroll" style="flex:1;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;gap:12px;padding:16px 16px 10px;">
+
+          <!-- CHAT VIEW -->
+          <sc-if value="{{ isChatView }}" hint-placeholder-val="{{ true }}">
+            <sc-for list="{{ messages }}" as="m" hint-placeholder-count="3">
+              <sc-if value="{{ m.isAssistant }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;gap:9px;align-items:flex-end;max-width:88%;animation:psBubble .42s cubic-bezier(0.05,0.7,0.1,1) both;">
+                  <div style="width:30px;height:30px;flex:none;border-radius:9px;background:radial-gradient(circle at 38% 28%,#34343a,#161619);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.1);">
+                    <img src="assets/JOOLA_Trinity_Yellow.png" alt="" style="width:18px;height:auto;">
+                  </div>
+                  <div style="background:#1b1b20;border:1px solid rgba(255,255,255,.07);color:#ECECEE;padding:11px 14px;border-radius:16px 16px 16px 5px;box-shadow:0 8px 20px rgba(0,0,0,.4);">
+                    <sc-if value="{{ m.eyebrow }}" hint-placeholder-val="cat">
+                      <div style="font-family:var(--md-sys-typescale-font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#ff6b6b;margin-bottom:5px;">{{ m.eyebrow }}</div>
+                    </sc-if>
+                    <div style="font-size:15px;line-height:1.42;font-weight:500;">{{ m.text }}</div>
+                  </div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ m.isUser }}" hint-placeholder-val="{{ false }}">
+                <div style="align-self:flex-end;max-width:80%;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;padding:11px 15px;border-radius:16px 16px 5px 16px;font-size:15px;font-weight:600;box-shadow:0 10px 22px rgba(192,13,28,.38);animation:psBubble .42s cubic-bezier(0.05,0.7,0.1,1) both;">{{ m.text }}</div>
+              </sc-if>
+            </sc-for>
+
+            <!-- typing -->
+            <sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;gap:9px;align-items:flex-end;animation:psBubble .3s ease both;">
+                <div style="width:30px;height:30px;flex:none;border-radius:9px;background:radial-gradient(circle at 38% 28%,#34343a,#161619);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.08);">
+                  <img src="assets/JOOLA_Trinity_Yellow.png" alt="" style="width:18px;height:auto;">
+                </div>
+                <div style="background:#1b1b20;border:1px solid rgba(255,255,255,.07);padding:14px 16px;border-radius:16px 16px 16px 5px;display:flex;gap:5px;align-items:center;">
+                  <span style="width:7px;height:7px;border-radius:50%;background:#9a9aa0;animation:psBlink 1.2s infinite;animation-delay:0s;"></span>
+                  <span style="width:7px;height:7px;border-radius:50%;background:#9a9aa0;animation:psBlink 1.2s infinite;animation-delay:.18s;"></span>
+                  <span style="width:7px;height:7px;border-radius:50%;background:#9a9aa0;animation:psBlink 1.2s infinite;animation-delay:.36s;"></span>
+                </div>
+              </div>
+            </sc-if>
+
+            <!-- error bubble -->
+            <sc-if value="{{ errored }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;gap:9px;align-items:flex-end;max-width:88%;animation:psBubble .42s ease both;">
+                <div style="width:30px;height:30px;flex:none;border-radius:9px;background:rgba(224,32,47,.16);display:flex;align-items:center;justify-content:center;border:1px solid rgba(224,32,47,.4);color:#ff7a7a;">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 8v5"/><path d="M12 16.5v.01"/><circle cx="12" cy="12" r="9"/></svg>
+                </div>
+                <div style="background:rgba(224,32,47,.08);border:1px solid rgba(224,32,47,.28);color:#FBD5D5;padding:12px 14px;border-radius:16px 16px 16px 5px;">
+                  <div style="font-family:var(--md-sys-typescale-font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#ff7a7a;margin-bottom:5px;">Connection hiccup</div>
+                  <div style="font-size:14.5px;line-height:1.42;font-weight:500;">Something went wrong on our end. Your answers are safe — tap retry to pick up where you left off.</div>
+                </div>
+              </div>
+            </sc-if>
+          </sc-if>
+
+          <!-- RESULTS VIEW -->
+          <sc-if value="{{ isResults }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:16px;animation:psFadeUp .5s cubic-bezier(0.05,0.7,0.1,1) both;">
+
+              <!-- results header -->
+              <div style="display:flex;gap:9px;align-items:flex-start;">
+                <div style="width:30px;height:30px;flex:none;border-radius:9px;background:radial-gradient(circle at 38% 28%,#34343a,#161619);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.08);margin-top:2px;">
+                  <img src="assets/JOOLA_Trinity_Yellow.png" alt="" style="width:18px;height:auto;">
+                </div>
+                <div>
+                  <sc-if value="{{ isMatch }}" hint-placeholder-val="{{ true }}">
+                    <div style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ff6b6b;margin-bottom:6px;">Match complete</div>
+                    <div style="font-size:23px;font-weight:800;line-height:1.12;color:#fff;letter-spacing:-.01em;">Perfect. Here are<br>your paddle matches.</div>
+                    <div style="font-size:13.5px;color:#9A9B9F;margin-top:8px;line-height:1.45;">Based on your answers, these are the best fit for your game.</div>
+                  </sc-if>
+                  <sc-if value="{{ isNoMatch }}" hint-placeholder-val="{{ false }}">
+                    <div style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ffb15a;margin-bottom:6px;">Closest fit</div>
+                    <div style="font-size:23px;font-weight:800;line-height:1.12;color:#fff;letter-spacing:-.01em;">No exact match —<br>but these are close.</div>
+                    <div style="font-size:13.5px;color:#9A9B9F;margin-top:8px;line-height:1.45;">We couldn't find an exact match, but here are the closest paddle options based on your answers.</div>
+                  </sc-if>
+                </div>
+              </div>
+
+              <!-- TOP CARD 1 · Recommended -->
+              <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 26px 50px -20px rgba(0,0,0,.6),0 6px 14px rgba(0,0,0,.25),inset 0 1.5px 0 rgba(255,255,255,.7);">
+                <div style="position:relative;aspect-ratio:16/10;background:radial-gradient(115% 100% at 50% 0%,#2c2c33 0%,#0c0c0e 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                  <div style="position:absolute;inset:0;background:radial-gradient(closest-side at 50% 38%,rgba(245,230,37,.16),transparent 70%);"></div>
+                  <img src="assets/JOOLA_Trinity_Yellow.png" alt="Paddle A" style="width:44%;height:auto;position:relative;filter:drop-shadow(0 14px 24px rgba(0,0,0,.5));">
+                  <div style="position:absolute;top:13px;left:13px;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-family:var(--md-sys-typescale-font-mono);font-weight:600;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:99px;box-shadow:0 6px 14px rgba(176,13,28,.5);">★ Recommended for you</div>
+                </div>
+                <div style="padding:16px 16px 17px;">
+                  <div style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a8a8f;margin-bottom:4px;">Control Series · 16mm</div>
+                  <div style="font-size:19px;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;color:#0a0a0a;margin-bottom:7px;">Paddle A</div>
+                  <div style="font-size:13px;line-height:1.45;color:#55565a;margin-bottom:12px;">{{ reasonText }}</div>
+                  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:15px;">
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#1a1a1a;border:1px solid rgba(0,0,0,.16);padding:5px 9px;border-radius:99px;">Control</span>
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#1a1a1a;border:1px solid rgba(0,0,0,.16);padding:5px 9px;border-radius:99px;">Spin</span>
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:#0a0a0a;padding:5px 9px;border-radius:99px;">Premium</span>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:17px;font-weight:600;color:#0a0a0a;">$199.95</span>
+                    <div style="display:flex;gap:8px;">
+                      <button aria-label="Add Paddle A to cart" style="border:1.5px solid #0a0a0a;background:transparent;color:#0a0a0a;font-family:var(--md-sys-typescale-font-brand);font-size:13px;font-weight:600;padding:10px 14px;border-radius:99px;cursor:pointer;" style-hover="background:rgba(0,0,0,.06);">Add to cart</button>
+                      <button aria-label="View Paddle A" style="border:none;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:13px;font-weight:700;padding:10px 17px;border-radius:99px;cursor:pointer;box-shadow:0 8px 18px rgba(176,13,28,.4);" style-hover="filter:brightness(1.08);">View paddle</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TOP CARD 2 · Best Seller -->
+              <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 26px 50px -20px rgba(0,0,0,.6),0 6px 14px rgba(0,0,0,.25),inset 0 1.5px 0 rgba(255,255,255,.7);">
+                <div style="position:relative;aspect-ratio:16/10;background:radial-gradient(115% 100% at 50% 0%,#1c3350 0%,#0a1422 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                  <div style="position:absolute;inset:0;background:radial-gradient(closest-side at 50% 38%,rgba(245,230,37,.14),transparent 70%);"></div>
+                  <img src="assets/JOOLA_Trinity_Yellow.png" alt="Paddle B" style="width:44%;height:auto;position:relative;filter:drop-shadow(0 14px 24px rgba(0,0,0,.5));">
+                  <div style="position:absolute;top:13px;left:13px;background:var(--joola-yellow);color:#0a0a0a;font-family:var(--md-sys-typescale-font-mono);font-weight:600;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:99px;box-shadow:0 6px 14px rgba(0,0,0,.35);">⚡ Best seller</div>
+                </div>
+                <div style="padding:16px 16px 17px;">
+                  <div style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a8a8f;margin-bottom:4px;">Power Series · 14mm</div>
+                  <div style="font-size:19px;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;color:#0a0a0a;margin-bottom:7px;">Paddle B</div>
+                  <div style="font-size:13px;line-height:1.45;color:#55565a;margin-bottom:12px;">The crowd favorite — explosive power with a surprisingly forgiving sweet spot. Loved across every skill level.</div>
+                  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:15px;">
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#1a1a1a;border:1px solid rgba(0,0,0,.16);padding:5px 9px;border-radius:99px;">Power</span>
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#1a1a1a;border:1px solid rgba(0,0,0,.16);padding:5px 9px;border-radius:99px;">Spin</span>
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#0a0a0a;background:var(--joola-yellow);padding:5px 9px;border-radius:99px;">Most popular</span>
+                  </div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+                    <span style="font-family:var(--md-sys-typescale-font-mono);font-size:17px;font-weight:600;color:#0a0a0a;">$179.95</span>
+                    <div style="display:flex;gap:8px;">
+                      <button aria-label="Add Paddle B to cart" style="border:1.5px solid #0a0a0a;background:transparent;color:#0a0a0a;font-family:var(--md-sys-typescale-font-brand);font-size:13px;font-weight:600;padding:10px 14px;border-radius:99px;cursor:pointer;" style-hover="background:rgba(0,0,0,.06);">Add to cart</button>
+                      <button aria-label="View Paddle B" style="border:none;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:13px;font-weight:700;padding:10px 17px;border-radius:99px;cursor:pointer;box-shadow:0 8px 18px rgba(176,13,28,.4);" style-hover="filter:brightness(1.08);">View paddle</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- OTHER PADDLES -->
+              <div style="display:flex;align-items:center;gap:10px;margin-top:6px;">
+                <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;">Other paddles you may like</div>
+                <div style="flex:1;height:1px;background:rgba(255,255,255,.1);"></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <sc-for list="{{ otherPaddles }}" as="p" hint-placeholder-count="4">
+                  <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 14px 26px -16px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.6);">
+                    <div style="position:relative;aspect-ratio:1;background:radial-gradient(115% 100% at 50% 0%,#26262c,#0c0c0e);display:flex;align-items:center;justify-content:center;">
+                      <img src="assets/JOOLA_Trinity_Yellow.png" alt="{{ p.name }}" style="width:50%;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5));">
+                    </div>
+                    <div style="padding:11px 11px 13px;">
+                      <div style="font-family:var(--md-sys-typescale-font-mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8a8a8f;margin-bottom:3px;">{{ p.eyebrow }}</div>
+                      <div style="font-size:14px;font-weight:800;text-transform:uppercase;color:#0a0a0a;margin-bottom:8px;">{{ p.name }}</div>
+                      <div style="display:flex;align-items:center;justify-content:space-between;">
+                        <span style="font-family:var(--md-sys-typescale-font-mono);font-size:13px;font-weight:600;color:#0a0a0a;">{{ p.price }}</span>
+                        <span style="font-family:var(--md-sys-typescale-font-mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#1a1a1a;border:1px solid rgba(0,0,0,.16);padding:3px 7px;border-radius:99px;">{{ p.tag }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+
+        <!-- DOCK -->
+        <div style="flex:none;z-index:15;background:linear-gradient(180deg,rgba(10,10,12,0) 0%,#0b0b0d 22%);padding:8px 16px 22px;border-top:1px solid rgba(255,255,255,.05);">
+
+          <!-- welcome start -->
+          <sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ onStart }}" style="width:100%;border:none;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:16px;font-weight:700;letter-spacing:.01em;padding:16px;border-radius:16px;cursor:pointer;box-shadow:0 14px 30px -8px rgba(214,24,42,.55),inset 0 1px 0 rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;gap:9px;" style-hover="filter:brightness(1.08);" style-active="transform:translateY(1px);">
+              Find my paddle
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </button>
+            <div style="text-align:center;font-size:11.5px;color:#6f7074;margin-top:11px;">7 quick questions · about 30 seconds</div>
+          </sc-if>
+
+          <!-- chips -->
+          <sc-if value="{{ showChips }}" hint-placeholder-val="{{ true }}">
+            <sc-if value="{{ canChange }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ onChange }}" style="border:none;background:transparent;color:#9a9aa0;font-family:var(--md-sys-typescale-font-brand);font-size:12.5px;font-weight:500;cursor:pointer;padding:2px 0 9px;display:flex;align-items:center;gap:5px;" style-hover="color:#fff;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                Change last answer
+              </button>
+            </sc-if>
+            <div style="display:flex;flex-wrap:wrap;gap:9px;">
+              <sc-for list="{{ options }}" as="o" hint-placeholder-count="3">
+                <sc-if value="{{ o.selected }}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{ o.pick }}" aria-pressed="true" style="flex:1 1 132px;min-height:52px;border:1.5px solid #e0202f;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:14.5px;font-weight:600;border-radius:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 10px 22px rgba(176,13,28,.4);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    {{ o.label }}
+                  </button>
+                </sc-if>
+                <sc-if value="{{ o.unselected }}" hint-placeholder-val="{{ true }}">
+                  <button onClick="{{ o.pick }}" style="flex:1 1 132px;min-height:52px;border:1.5px solid rgba(255,255,255,.12);background:#16161a;color:#ECECEE;font-family:var(--md-sys-typescale-font-brand);font-size:14.5px;font-weight:600;border-radius:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:8px 12px;text-align:center;" style-hover="border-color:rgba(224,32,47,.7);background:rgba(224,32,47,.12);color:#fff;" style-active="transform:scale(.97);">{{ o.label }}</button>
+                </sc-if>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <!-- typing dock hint -->
+          <sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center;font-size:12px;color:#6f7074;padding:13px 0;letter-spacing:.02em;">Coach is finding your match…</div>
+          </sc-if>
+
+          <!-- error retry -->
+          <sc-if value="{{ errored }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ onRetry }}" style="width:100%;border:none;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:15px;font-weight:700;padding:15px;border-radius:14px;cursor:pointer;box-shadow:0 12px 26px -8px rgba(214,24,42,.5);display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="filter:brightness(1.08);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              Retry
+            </button>
+          </sc-if>
+
+          <!-- results actions -->
+          <sc-if value="{{ isResults }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ onAskRestart }}" style="width:100%;border:1.5px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:15px;font-weight:600;padding:15px;border-radius:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="background:rgba(255,255,255,.1);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              Start over
+            </button>
+          </sc-if>
+        </div>
+
+        <!-- RESTART OVERLAY -->
+        <sc-if value="{{ showRestartOverlay }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;justify-content:flex-end;">
+            <div onClick="{{ onCancelOverlay }}" style="position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);animation:psScrim .25s ease both;"></div>
+            <div style="position:relative;background:#161619;border-radius:26px 26px 47px 47px;padding:24px 22px 30px;border-top:1px solid rgba(255,255,255,.08);box-shadow:0 -20px 40px rgba(0,0,0,.5);animation:psSheet .35s cubic-bezier(0.05,0.7,0.1,1) both;">
+              <div style="width:38px;height:4px;border-radius:99px;background:rgba(255,255,255,.2);margin:0 auto 18px;"></div>
+              <div style="font-size:20px;font-weight:800;color:#fff;text-align:center;margin-bottom:8px;">Start over?</div>
+              <div style="font-size:14px;color:#9A9B9F;text-align:center;line-height:1.45;margin-bottom:22px;">This clears your answers and takes you back to the first question.</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <button onClick="{{ onConfirmRestart }}" style="width:100%;border:none;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:15px;font-weight:700;padding:15px;border-radius:14px;cursor:pointer;box-shadow:0 12px 26px -8px rgba(214,24,42,.5);" style-hover="filter:brightness(1.08);">Yes, restart</button>
+                <button onClick="{{ onCancelOverlay }}" style="width:100%;border:1.5px solid rgba(255,255,255,.16);background:transparent;color:#fff;font-family:var(--md-sys-typescale-font-brand);font-size:15px;font-weight:600;padding:15px;border-radius:14px;cursor:pointer;" style-hover="background:rgba(255,255,255,.08);">Keep my answers</button>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ───────── STATE PREVIEW SWITCHER ───────── -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px;max-width:430px;">
+    <div style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#5f6064;">Preview states</div>
+    {{ demoSwitcher }}
+  </div>
+
+  <!-- ───────── DESKTOP NOTE ───────── -->
+  <div style="width:100%;max-width:940px;display:flex;flex-direction:column;gap:14px;margin-top:14px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="font-family:var(--md-sys-typescale-font-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#7C7D81;">Desktop adaptation</div>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,.08);"></div>
+    </div>
+    <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px -30px rgba(0,0,0,.7);">
+      <div style="height:38px;background:#1a1a1d;display:flex;align-items:center;gap:7px;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.06);">
+        <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#febc2e;"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:#28c840;"></span>
+        <span style="margin-left:14px;font-family:var(--md-sys-typescale-font-mono);font-size:11px;color:#6f7074;">joola.com/paddle-selector</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1.1fr;background:linear-gradient(135deg,#0e0e10,#070708);min-height:360px;">
+        <!-- intro rail -->
+        <div style="padding:42px 38px;display:flex;flex-direction:column;justify-content:center;gap:18px;border-right:1px solid rgba(255,255,255,.05);">
+          <img src="assets/JOOLA_Lockup_Horizontal_Black.png" alt="JOOLA" style="height:22px;width:auto;filter:invert(1);align-self:flex-start;">
+          <div style="font-size:34px;font-weight:800;line-height:1.08;color:#fff;letter-spacing:-.02em;">Find your<br>JOOLA paddle.</div>
+          <div style="font-size:15px;color:#9A9B9F;line-height:1.5;max-width:300px;">Answer a few quick questions and get a personalized recommendation built around your game.</div>
+          <div style="display:flex;gap:8px;align-items:center;margin-top:4px;">
+            <span style="font-family:var(--md-sys-typescale-font-mono);font-size:11px;color:#ff5a5a;letter-spacing:.1em;">7 QUESTIONS</span>
+            <span style="width:4px;height:4px;border-radius:50%;background:#444;"></span>
+            <span style="font-family:var(--md-sys-typescale-font-mono);font-size:11px;color:#6f7074;letter-spacing:.1em;">~30 SEC</span>
+          </div>
+        </div>
+        <!-- centered chat container -->
+        <div style="padding:34px;display:flex;align-items:center;justify-content:center;">
+          <div style="width:100%;max-width:380px;background:#0c0c0f;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:20px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7);display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="font-family:var(--md-sys-typescale-font-mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#7C7D81;">Question 3 of 7</div>
+              <div style="font-family:var(--md-sys-typescale-font-mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#5f6064;">Restart</div>
+            </div>
+            <div style="height:3px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;"><div style="height:100%;width:43%;background:linear-gradient(90deg,#e0202f,#ff5a5a);border-radius:99px;"></div></div>
+            <div style="display:flex;gap:9px;align-items:flex-end;max-width:90%;">
+              <div style="width:28px;height:28px;flex:none;border-radius:8px;background:radial-gradient(circle at 38% 28%,#34343a,#161619);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.08);"><img src="assets/JOOLA_Trinity_Yellow.png" alt="" style="width:16px;height:auto;"></div>
+              <div style="background:#1b1b20;border:1px solid rgba(255,255,255,.07);color:#ECECEE;padding:10px 13px;border-radius:14px 14px 14px 4px;font-size:14px;font-weight:500;">When you play, what matters most?</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:2px;">
+              <span style="flex:1 1 46%;text-align:center;border:1.5px solid rgba(255,255,255,.12);background:#16161a;color:#ECECEE;font-size:13.5px;font-weight:600;border-radius:12px;padding:11px;">Power</span>
+              <span style="flex:1 1 46%;text-align:center;border:1.5px solid #e0202f;background:linear-gradient(135deg,#e0202f,#b00d1c);color:#fff;font-size:13.5px;font-weight:600;border-radius:12px;padding:11px;">Control</span>
+              <span style="flex:1 1 46%;text-align:center;border:1.5px solid rgba(255,255,255,.12);background:#16161a;color:#ECECEE;font-size:13.5px;font-weight:600;border-radius:12px;padding:11px;">Balance</span>
+              <span style="flex:1 1 46%;text-align:center;border:1.5px solid rgba(255,255,255,.12);background:#16161a;color:#ECECEE;font-size:13.5px;font-weight:600;border-radius:12px;padding:11px;">Spin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12.5px;color:#6f7074;line-height:1.5;">Desktop keeps the same chat engine inside a centered container, with a persistent intro rail on the left. Results expand to a 2-up row of top cards with the "other paddles" grid below. The mobile phone above is the interactive source of truth.</div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.chatRef = React.createRef();
+    this.timers = [];
+    this.QUESTIONS = [
+      {cat:'Player Profile',     q:"First up — what's your skill level?",          options:['Beginner','Intermediate','Advanced']},
+      {cat:'Player Profile',     q:"How often do you get on the court?",           options:['Occasionally','Weekly','Multiple times / week']},
+      {cat:'Play Style',         q:"When you play, what matters most?",            options:['Power','Control','Balance','Spin']},
+      {cat:'Feel & Comfort',     q:"Do you use a two-handed backhand?",            options:['Yes','No','Sometimes']},
+      {cat:'Price Sensitivity',  q:"What's your budget?",                          options:['Under $100','$100–$200','$200+ premium','No budget']},
+      {cat:'Price Sensitivity',  q:"Open to upgrading if it improves your game?",  options:['Yes','Maybe','No']},
+      {cat:'Grip Circumference', q:"How does your current grip feel?",             options:['Small','Just right','Large','Not sure / 1st paddle']}
+    ];
+    this.WELCOME = "Let's find the right JOOLA paddle for your game. I'll ask 7 quick questions — tap your answer and I'll handle the rest.";
+    this.OTHERS = [
+      {name:'Paddle C', eyebrow:'All-Court · 16mm', tag:'Balance', price:'$129.95'},
+      {name:'Paddle D', eyebrow:'Power · 14mm',     tag:'Power',   price:'$219.95'},
+      {name:'Paddle E', eyebrow:'Control · 16mm',   tag:'Spin',    price:'$149.95'},
+      {name:'Paddle F', eyebrow:'Entry · 13mm',     tag:'Value',   price:'$99.95'}
+    ];
+  }
+
+  state = {
+    phase: 'welcome',   // welcome | chat | results
+    step: 0,
+    answers: [],
+    typing: false,
+    pendingPick: null,
+    overlay: null,      // null | 'restart'
+    errored: false,
+    resultMode: 'match' // match | nomatch
+  };
+
+  later(fn, ms){ const t = setTimeout(fn, ms); this.timers.push(t); return t; }
+  clearTimers(){ this.timers.forEach(t => clearTimeout(t)); this.timers = []; }
+  componentWillUnmount(){ this.clearTimers(); }
+  componentDidUpdate(){ const el = this.chatRef.current; if (el) el.scrollTop = el.scrollHeight; }
+
+  start(){
+    this.clearTimers();
+    this.setState({phase:'chat', step:0, answers:[], typing:true, pendingPick:null, errored:false, overlay:null, resultMode:'match'});
+    this.later(() => this.setState({typing:false}), 850);
+  }
+
+  select(opt){
+    if (this.state.pendingPick) return;
+    this.setState({pendingPick:opt});
+    this.later(() => {
+      const answers = this.state.answers.slice(0, this.state.step);
+      answers[this.state.step] = opt;
+      const nextStep = this.state.step + 1;
+      this.setState({answers, step:nextStep, typing:true, pendingPick:null});
+      this.later(() => {
+        if (nextStep >= this.QUESTIONS.length) this.setState({phase:'results', typing:false});
+        else this.setState({typing:false});
+      }, 980);
+    }, 270);
+  }
+
+  changeLast(){
+    this.clearTimers();
+    if (this.state.phase === 'results'){
+      const step = this.QUESTIONS.length - 1;
+      this.setState({phase:'chat', step, answers:this.state.answers.slice(0, step), typing:false, pendingPick:null});
+      return;
+    }
+    if (this.state.step > 0){
+      const step = this.state.step - 1;
+      this.setState({step, answers:this.state.answers.slice(0, step), typing:false, pendingPick:null});
+    }
+  }
+
+  askRestart(){ this.setState({overlay:'restart'}); }
+  cancelOverlay(){ this.setState({overlay:null}); }
+  confirmRestart(){ this.clearTimers(); this.setState({phase:'welcome', step:0, answers:[], typing:false, pendingPick:null, overlay:null, errored:false, resultMode:'match'}); }
+  retry(){ this.setState({errored:false}); }
+
+  setDemo(name){
+    this.clearTimers();
+    const full = ['Intermediate','Weekly','Control','Sometimes','$100–$200','Maybe','Just right'];
+    const base = {overlay:null, errored:false, pendingPick:null, resultMode:'match'};
+    switch(name){
+      case 'welcome':  this.setState({...base, phase:'welcome', step:0, answers:[], typing:false}); break;
+      case 'question': this.setState({...base, phase:'chat', step:2, answers:full.slice(0,2), typing:false}); break;
+      case 'selected': this.setState({...base, phase:'chat', step:2, answers:full.slice(0,2), typing:false, pendingPick:'Control'}); break;
+      case 'loading':  this.setState({...base, phase:'chat', step:3, answers:full.slice(0,3), typing:true}); break;
+      case 'results':  this.setState({...base, phase:'results', step:7, answers:full, typing:false}); break;
+      case 'nomatch':  this.setState({...base, phase:'results', step:7, answers:full, typing:false, resultMode:'nomatch'}); break;
+      case 'error':    this.setState({...base, phase:'chat', step:3, answers:full.slice(0,3), typing:false, errored:true}); break;
+      case 'restart':  this.setState({...base, phase:'chat', step:3, answers:full.slice(0,3), typing:false, overlay:'restart'}); break;
+    }
+  }
+
+  renderVals(){
+    const { phase, step, answers, typing, pendingPick, overlay, errored, resultMode } = this.state;
+    const Q = this.QUESTIONS;
+    const total = Q.length;
+
+    const messages = [];
+    messages.push({id:'w', isAssistant:true, isUser:false, eyebrow:'', text:this.WELCOME});
+    for (let i = 0; i < answers.length; i++){
+      messages.push({id:'q'+i, isAssistant:true, isUser:false, eyebrow:Q[i].cat, text:Q[i].q});
+      messages.push({id:'a'+i, isAssistant:false, isUser:true, eyebrow:'', text:answers[i]});
+    }
+    const showCurrentQ = phase === 'chat' && !typing && !errored && step < total;
+    if (showCurrentQ) messages.push({id:'cur', isAssistant:true, isUser:false, eyebrow:Q[step].cat, text:Q[step].q});
+
+    const options = (phase === 'chat' && step < total ? Q[step].options : []).map((label, i) => ({
+      label, idx:i,
+      selected: label === pendingPick,
+      unselected: label !== pendingPick,
+      pick: () => this.select(label)
+    }));
+
+    const lvl = (answers[0] || 'Intermediate').toLowerCase();
+    const pr  = (answers[2] || 'Control').toLowerCase();
+    const bud = answers[4] || '$100–$200';
+    const reasonText = `Tuned for ${pr}-first play at the ${lvl} level, within your ${bud} budget.`;
+
+    const isWelcome = phase === 'welcome';
+    const isChat = phase === 'chat';
+    const isResults = phase === 'results';
+
+    const progressPct = (Math.min(step, total) / total) * 100;
+    const progressFill = React.createElement('div', {style:{
+      height:'100%', width: progressPct + '%',
+      background:'linear-gradient(90deg,#e0202f,#ff5a5a)', borderRadius:'inherit',
+      transition:'width .45s cubic-bezier(0.05,0.7,0.1,1)', boxShadow:'0 0 12px rgba(224,32,47,.6)'
+    }});
+
+    // demo switcher (presentation chrome)
+    let activeDemo = 'question';
+    if (overlay === 'restart') activeDemo = 'restart';
+    else if (errored) activeDemo = 'error';
+    else if (isWelcome) activeDemo = 'welcome';
+    else if (isResults) activeDemo = resultMode === 'nomatch' ? 'nomatch' : 'results';
+    else if (typing) activeDemo = 'loading';
+    else if (pendingPick) activeDemo = 'selected';
+    const demoList = [['welcome','Welcome'],['question','Question'],['selected','Selected'],['loading','Loading'],['results','Results'],['nomatch','No match'],['error','Error'],['restart','Restart']];
+    const demoSwitcher = React.createElement('div', {style:{display:'flex',flexWrap:'wrap',gap:'7px',justifyContent:'center',maxWidth:'420px'}},
+      demoList.map(([key,label]) => {
+        const active = key === activeDemo;
+        return React.createElement('button', {
+          key, onClick: () => this.setDemo(key),
+          style:{
+            fontFamily:'var(--md-sys-typescale-font-mono)', fontSize:'11px', letterSpacing:'.04em',
+            textTransform:'uppercase', padding:'8px 13px', borderRadius:'99px', cursor:'pointer',
+            border: active ? '1px solid #fff' : '1px solid rgba(255,255,255,.16)',
+            background: active ? '#fff' : 'rgba(255,255,255,.04)',
+            color: active ? '#0a0a0a' : '#9a9aa0', fontWeight: active ? 700 : 500,
+            transition:'all .2s ease'
+          }
+        }, label);
+      })
+    );
+
+    return {
+      isWelcome, isChat, isResults,
+      isChatView: isWelcome || isChat,
+      isMatch: resultMode === 'match',
+      isNoMatch: resultMode === 'nomatch',
+      typing, errored,
+      showChips: isChat && !typing && !errored && step < total,
+      canChange: isChat && step > 0,
+      backVisible: isChat && step > 0,
+      backHidden: !(isChat && step > 0),
+      restartVisible: !isWelcome,
+      restartHidden: isWelcome,
+      showProgress: isChat,
+      hideProgress: !isChat,
+      progressLabel: `Question ${Math.min(step + 1, total)} of ${total}`,
+      subtitleLabel: isResults ? 'Your matches' : 'Paddle Selector',
+      showRestartOverlay: overlay === 'restart',
+      progressFill,
+      messages, options,
+      reasonText,
+      otherPaddles: this.OTHERS,
+      chatRef: this.chatRef,
+      demoSwitcher,
+      onStart: () => this.start(),
+      onChange: () => this.changeLast(),
+      onAskRestart: () => this.askRestart(),
+      onCancelOverlay: () => this.cancelOverlay(),
+      onConfirmRestart: () => this.confirmRestart(),
+      onRetry: () => this.retry()
+    };
+  }
+}
+</script>
+</body>
+</html>

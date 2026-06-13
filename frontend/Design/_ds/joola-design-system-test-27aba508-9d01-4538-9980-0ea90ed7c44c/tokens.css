@@ -1,0 +1,551 @@
+/* ============================================================
+   JOOLA · Material Design 3 — design tokens
+   ------------------------------------------------------------
+   Strict M3 mechanics. Brand layer = JOOLA yellow seed +
+   FK Grotesk Neue type. All values follow the M3 spec:
+     • Tonal palettes at standard tones 0–100 (HCT-derived)
+     • sys.color roles (light + dark)
+     • sys.typescale (Display / Headline / Title / Body / Label)
+     • sys.shape, sys.elevation, sys.state, sys.motion
+
+   Layers
+     1. ref.palette       — tonal palettes per key color
+     2. sys.color         — semantic roles (light by default,
+                            dark via .theme-dark / [data-theme=dark])
+     3. sys.typescale     — type family + size/lh/tracking
+     4. sys.shape         — corner sizes
+     5. sys.elevation     — 6 levels (0–5)
+     6. sys.state         — state-layer opacities
+     7. sys.motion        — durations + easings
+   ============================================================ */
+
+/* ─── FONT FACES · FK Grotesk Neue + FK Grotesk Mono ─────── */
+@font-face{font-family:"FK Grotesk Neue";font-style:normal;font-weight:100;font-display:swap;src:url("fonts/FKGroteskNeue-Thin.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:italic;font-weight:100;font-display:swap;src:url("fonts/FKGroteskNeue-ThinItalic.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:normal;font-weight:300;font-display:swap;src:url("fonts/FKGroteskNeue-Light.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:italic;font-weight:300;font-display:swap;src:url("fonts/FKGroteskNeue-LightItalic.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/FKGroteskNeue-Regular.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/FKGroteskNeue-Italic.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/FKGroteskNeue-Medium.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:italic;font-weight:500;font-display:swap;src:url("fonts/FKGroteskNeue-MediumItalic.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/FKGroteskNeue-Bold.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:italic;font-weight:700;font-display:swap;src:url("fonts/FKGroteskNeue-BoldItalic.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:normal;font-weight:900;font-display:swap;src:url("fonts/FKGroteskNeue-Black.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Neue";font-style:italic;font-weight:900;font-display:swap;src:url("fonts/FKGroteskNeue-BlackItalic.otf") format("opentype");}
+@font-face{font-family:"FK Grotesk Mono";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/FKGroteskMono-Medium.otf") format("opentype");}
+
+:root {
+  /* ─── ref.palette · PRIMARY · achromatic / Uber-style ──────
+     Pure black-and-white ramp. Monotonic from T0 (#000) up to
+     T100 (#FFF), matching the cool neutral hue so primary sits
+     harmoniously on neutral surfaces. T40 (light primary) and
+     T80 (dark-mode primary) are intentionally near the extremes
+     so the brand reads as solid black / solid white. */
+  --md-ref-palette-primary0:   #000000;
+  --md-ref-palette-primary10:  #0D0E0F;
+  --md-ref-palette-primary20:  #1A1B1C;
+  --md-ref-palette-primary25:  #1F2022;
+  --md-ref-palette-primary30:  #25262A;
+  --md-ref-palette-primary35:  #2A2B2F;
+  --md-ref-palette-primary40:  #2F3033;   /* token role · light primary tone */
+  --md-ref-palette-primary50:  #4A4B4E;
+  --md-ref-palette-primary60:  #65666A;
+  --md-ref-palette-primary70:  #808286;
+  --md-ref-palette-primary80:  #9C9DA1;
+  --md-ref-palette-primary90:  #C7C9CC;
+  --md-ref-palette-primary95:  #E3E5E8;
+  --md-ref-palette-primary98:  #F4F6F8;
+  --md-ref-palette-primary99:  #FAFBFC;
+  --md-ref-palette-primary100: #FFFFFF;
+
+  /* ─── ref.palette · SECONDARY · anchored T40 = #0053A5 ─────
+     JOOLA blue (~hue 212). Full-chroma at the brand tone, soft
+     containers in the upper register so it sits comfortably on
+     a warm-neutral surface. */
+  --md-ref-palette-secondary0:   #000000;
+  --md-ref-palette-secondary10:  #001B3D;
+  --md-ref-palette-secondary20:  #002F66;
+  --md-ref-palette-secondary25:  #003B7E;
+  --md-ref-palette-secondary30:  #004690;
+  --md-ref-palette-secondary35:  #004D9B;
+  --md-ref-palette-secondary40:  #0053A5;   /* ← anchor · brand blue */
+  --md-ref-palette-secondary50:  #316CB8;
+  --md-ref-palette-secondary60:  #5187CC;
+  --md-ref-palette-secondary70:  #74A2DD;
+  --md-ref-palette-secondary80:  #A0BFEC;
+  --md-ref-palette-secondary90:  #CFDEF8;
+  --md-ref-palette-secondary95:  #E7EEFC;
+  --md-ref-palette-secondary98:  #F5F8FE;
+  --md-ref-palette-secondary99:  #FBFCFF;
+  --md-ref-palette-secondary100: #FFFFFF;
+
+  /* Tertiary tonal palette removed — JOOLA uses a two-accent
+     system (primary black + secondary blue). The sys.color.tertiary
+     roles below alias to the secondary palette so any third-party
+     M3 component referencing them keeps working. */
+
+  /* ─── ref.palette · ERROR · Tailwind red, anchored T40 = #B91C1C ──
+     Maps Tailwind's red-50…950 scale onto the M3 tone ramp. */
+  --md-ref-palette-error0:   #000000;
+  --md-ref-palette-error10:  #450A0A;   /* tw red-950 */
+  --md-ref-palette-error20:  #7F1D1D;   /* tw red-900 */
+  --md-ref-palette-error25:  #891A1A;
+  --md-ref-palette-error30:  #991B1B;   /* tw red-800 */
+  --md-ref-palette-error35:  #A81B1B;
+  --md-ref-palette-error40:  #B91C1C;   /* ← anchor · tw red-700 */
+  --md-ref-palette-error50:  #DC2626;   /* tw red-600 */
+  --md-ref-palette-error60:  #EF4444;   /* tw red-500 */
+  --md-ref-palette-error70:  #F87171;   /* tw red-400 */
+  --md-ref-palette-error80:  #FCA5A5;   /* tw red-300 */
+  --md-ref-palette-error90:  #FECACA;   /* tw red-200 */
+  --md-ref-palette-error95:  #FEE2E2;   /* tw red-100 */
+  --md-ref-palette-error98:  #FEF2F2;   /* tw red-50  */
+  --md-ref-palette-error99:  #FFFBFB;
+  --md-ref-palette-error100: #FFFFFF;
+
+  /* ─── ref.palette · SUCCESS · Tailwind green, anchored T40 = #15803D ──
+     JOOLA extension for positive / confirmation states. Maps
+     Tailwind's green-50…950 scale onto the M3 tone ramp. */
+  --md-ref-palette-success0:   #000000;
+  --md-ref-palette-success10:  #052E16;   /* tw green-950 */
+  --md-ref-palette-success20:  #14532D;   /* tw green-900 */
+  --md-ref-palette-success25:  #155D32;
+  --md-ref-palette-success30:  #166534;   /* tw green-800 */
+  --md-ref-palette-success35:  #15723B;
+  --md-ref-palette-success40:  #15803D;   /* ← anchor · tw green-700 */
+  --md-ref-palette-success50:  #16A34A;   /* tw green-600 */
+  --md-ref-palette-success60:  #22C55E;   /* tw green-500 */
+  --md-ref-palette-success70:  #4ADE80;   /* tw green-400 */
+  --md-ref-palette-success80:  #86EFAC;   /* tw green-300 */
+  --md-ref-palette-success90:  #BBF7D0;   /* tw green-200 */
+  --md-ref-palette-success95:  #DCFCE7;   /* tw green-100 */
+  --md-ref-palette-success98:  #F0FDF4;   /* tw green-50  */
+  --md-ref-palette-success99:  #F7FEF9;
+  --md-ref-palette-success100: #FFFFFF;
+
+  /* ─── ref.palette · WARNING · Tailwind orange, anchored T40 = #C2410C ──
+     JOOLA extension for caution / pending states. Maps Tailwind's
+     orange-50…950 scale onto the M3 tone ramp (dark→light). */
+  --md-ref-palette-warning0:   #000000;
+  --md-ref-palette-warning10:  #431407;   /* tw orange-950 */
+  --md-ref-palette-warning20:  #7C2D12;   /* tw orange-900 */
+  --md-ref-palette-warning25:  #88300F;
+  --md-ref-palette-warning30:  #9A3412;   /* tw orange-800 */
+  --md-ref-palette-warning35:  #AE3B0E;
+  --md-ref-palette-warning40:  #C2410C;   /* ← anchor · tw orange-700 */
+  --md-ref-palette-warning50:  #EA580C;   /* tw orange-600 */
+  --md-ref-palette-warning60:  #F97316;   /* tw orange-500 */
+  --md-ref-palette-warning70:  #FB923C;   /* tw orange-400 */
+  --md-ref-palette-warning80:  #FDBA74;   /* tw orange-300 */
+  --md-ref-palette-warning90:  #FED7AA;   /* tw orange-200 */
+  --md-ref-palette-warning95:  #FFEDD5;   /* tw orange-100 */
+  --md-ref-palette-warning98:  #FFF7ED;   /* tw orange-50  */
+  --md-ref-palette-warning99:  #FFFBF5;
+  --md-ref-palette-warning100: #FFFFFF;
+
+  /* ─── ref.palette · NEUTRAL · cool grey, anchored at T94 = #EFF1F2 ── */
+  --md-ref-palette-neutral0:   #000000;
+  --md-ref-palette-neutral4:   #0B0C0D;
+  --md-ref-palette-neutral6:   #101112;
+  --md-ref-palette-neutral10:  #1A1B1C;
+  --md-ref-palette-neutral12:  #1E1F21;
+  --md-ref-palette-neutral17:  #292A2C;
+  --md-ref-palette-neutral20:  #303133;
+  --md-ref-palette-neutral22:  #343538;
+  --md-ref-palette-neutral24:  #393A3C;
+  --md-ref-palette-neutral25:  #3B3D3F;
+  --md-ref-palette-neutral30:  #474849;
+  --md-ref-palette-neutral35:  #535456;
+  --md-ref-palette-neutral40:  #5F6062;
+  --md-ref-palette-neutral50:  #78797B;
+  --md-ref-palette-neutral60:  #919395;
+  --md-ref-palette-neutral70:  #ACADAF;
+  --md-ref-palette-neutral80:  #C7C9CA;
+  --md-ref-palette-neutral87:  #DBDDDE;
+  --md-ref-palette-neutral90:  #E3E5E6;
+  --md-ref-palette-neutral92:  #E9EBEC;
+  --md-ref-palette-neutral94:  #EFF1F2;   /* ← anchor · surface-container */
+  --md-ref-palette-neutral95:  #F1F3F4;
+  --md-ref-palette-neutral96:  #F3F5F6;
+  --md-ref-palette-neutral98:  #F8FAFB;
+  --md-ref-palette-neutral99:  #FCFDFE;
+  --md-ref-palette-neutral100: #FFFFFF;
+
+  /* ─── ref.palette · NEUTRAL VARIANT · cool, slightly chromatic ── */
+  --md-ref-palette-neutral-variant0:   #000000;
+  --md-ref-palette-neutral-variant10:  #181B1F;
+  --md-ref-palette-neutral-variant20:  #2D3034;
+  --md-ref-palette-neutral-variant25:  #383B3F;
+  --md-ref-palette-neutral-variant30:  #43464A;
+  --md-ref-palette-neutral-variant35:  #4F5256;
+  --md-ref-palette-neutral-variant40:  #5B5E62;
+  --md-ref-palette-neutral-variant50:  #74777B;
+  --md-ref-palette-neutral-variant60:  #8E9196;
+  --md-ref-palette-neutral-variant70:  #A9ACB1;
+  --md-ref-palette-neutral-variant80:  #C4C7CC;
+  --md-ref-palette-neutral-variant90:  #E0E3E7;
+  --md-ref-palette-neutral-variant95:  #EFF1F5;
+  --md-ref-palette-neutral-variant98:  #F8FAFD;
+  --md-ref-palette-neutral-variant99:  #FCFDFF;
+  --md-ref-palette-neutral-variant100: #FFFFFF;
+
+  /* ────────────────────────────────────────────────────────
+     sys.color · LIGHT (M3 default)
+     ──────────────────────────────────────────────────────── */
+  --md-sys-color-primary:                       #000000;
+  --md-sys-color-on-primary:                    #FFFFFF;
+  --md-sys-color-primary-container:             var(--md-ref-palette-neutral90);
+  --md-sys-color-on-primary-container:          #000000;
+  --md-sys-color-inverse-primary:               #FFFFFF;
+  --md-sys-color-primary-fixed:                 var(--md-ref-palette-primary90);
+  --md-sys-color-primary-fixed-dim:             var(--md-ref-palette-primary80);
+  --md-sys-color-on-primary-fixed:              var(--md-ref-palette-primary10);
+  --md-sys-color-on-primary-fixed-variant:      var(--md-ref-palette-primary30);
+
+  --md-sys-color-secondary:                     var(--md-ref-palette-secondary40);
+  --md-sys-color-on-secondary:                  var(--md-ref-palette-secondary100);
+  --md-sys-color-secondary-container:           var(--md-ref-palette-secondary90);
+  --md-sys-color-on-secondary-container:        var(--md-ref-palette-secondary10);
+  --md-sys-color-secondary-fixed:               var(--md-ref-palette-secondary90);
+  --md-sys-color-secondary-fixed-dim:           var(--md-ref-palette-secondary80);
+  --md-sys-color-on-secondary-fixed:            var(--md-ref-palette-secondary10);
+  --md-sys-color-on-secondary-fixed-variant:    var(--md-ref-palette-secondary30);
+
+  /* tertiary removed — JOOLA is a two-accent system (primary black +
+     secondary blue). Use secondary or a *-container role for accents. */
+
+  --md-sys-color-error:                         var(--md-ref-palette-error40);
+  --md-sys-color-on-error:                      var(--md-ref-palette-error100);
+  --md-sys-color-error-container:               var(--md-ref-palette-error90);
+  --md-sys-color-on-error-container:            var(--md-ref-palette-error10);
+
+  --md-sys-color-success:                       var(--md-ref-palette-success40);
+  --md-sys-color-on-success:                    var(--md-ref-palette-success100);
+  --md-sys-color-success-container:             var(--md-ref-palette-success90);
+  --md-sys-color-on-success-container:          var(--md-ref-palette-success10);
+
+  --md-sys-color-warning:                       var(--md-ref-palette-warning40);
+  --md-sys-color-on-warning:                    var(--md-ref-palette-warning100);
+  --md-sys-color-warning-container:             var(--md-ref-palette-warning90);
+  --md-sys-color-on-warning-container:          var(--md-ref-palette-warning10);
+
+  --md-sys-color-background:                    var(--md-ref-palette-neutral98);
+  --md-sys-color-on-background:                 var(--md-ref-palette-neutral10);
+
+  --md-sys-color-surface:                       var(--md-ref-palette-neutral98);
+  --md-sys-color-on-surface:                    var(--md-ref-palette-neutral10);
+  --md-sys-color-surface-variant:               var(--md-ref-palette-neutral-variant90);
+  --md-sys-color-on-surface-variant:            var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-inverse-surface:               var(--md-ref-palette-neutral20);
+  --md-sys-color-inverse-on-surface:            var(--md-ref-palette-neutral95);
+
+  --md-sys-color-surface-dim:                   var(--md-ref-palette-neutral87);
+  --md-sys-color-surface-bright:                var(--md-ref-palette-neutral98);
+  --md-sys-color-surface-container-lowest:      var(--md-ref-palette-neutral100);
+  --md-sys-color-surface-container-low:         var(--md-ref-palette-neutral96);
+  --md-sys-color-surface-container:             var(--md-ref-palette-neutral94);
+  --md-sys-color-surface-container-high:        var(--md-ref-palette-neutral92);
+  --md-sys-color-surface-container-highest:     var(--md-ref-palette-neutral90);
+  --md-sys-color-surface-tint:                  var(--md-sys-color-primary);
+
+  --md-sys-color-outline:                       var(--md-ref-palette-neutral-variant50);
+  --md-sys-color-outline-variant:               var(--md-ref-palette-neutral-variant80);
+  --md-sys-color-shadow:                        var(--md-ref-palette-neutral0);
+  --md-sys-color-scrim:                         var(--md-ref-palette-neutral0);
+
+  /* ────────────────────────────────────────────────────────
+     sys.typescale  ·  FK Grotesk Neue
+     M3 standard scale. Weights: regular default, medium for
+     title-m/s + all labels. Emphasized = bold (headline-m → black).
+     ──────────────────────────────────────────────────────── */
+  --md-sys-typescale-font-brand:  "FK Grotesk Neue", "FK Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --md-sys-typescale-font-plain:  var(--md-sys-typescale-font-brand);
+  --md-sys-typescale-font-mono:   "FK Grotesk Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --md-sys-typescale-weight-regular: 400;
+  --md-sys-typescale-weight-medium:  500;
+  --md-sys-typescale-weight-bold:    700;
+  --md-sys-typescale-weight-black:   900;
+
+  /* Display */
+  --md-sys-typescale-display-large-size:        57px;
+  --md-sys-typescale-display-large-line-height: 64px;
+  --md-sys-typescale-display-large-tracking:   -0.25px;
+  --md-sys-typescale-display-medium-size:        45px;
+  --md-sys-typescale-display-medium-line-height: 52px;
+  --md-sys-typescale-display-medium-tracking:    0px;
+  --md-sys-typescale-display-small-size:         36px;
+  --md-sys-typescale-display-small-line-height:  44px;
+  --md-sys-typescale-display-small-tracking:     0px;
+
+  /* Headline */
+  --md-sys-typescale-headline-large-size:        32px;
+  --md-sys-typescale-headline-large-line-height: 40px;
+  --md-sys-typescale-headline-large-tracking:    0px;
+  --md-sys-typescale-headline-medium-size:        28px;
+  --md-sys-typescale-headline-medium-line-height: 36px;
+  --md-sys-typescale-headline-medium-tracking:    0px;
+  --md-sys-typescale-headline-small-size:         24px;
+  --md-sys-typescale-headline-small-line-height:  32px;
+  --md-sys-typescale-headline-small-tracking:     0px;
+
+  /* Title */
+  --md-sys-typescale-title-large-size:        22px;
+  --md-sys-typescale-title-large-line-height: 28px;
+  --md-sys-typescale-title-large-tracking:    0px;
+  --md-sys-typescale-title-medium-size:        16px;
+  --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-medium-tracking:    0.15px;
+  --md-sys-typescale-title-small-size:         14px;
+  --md-sys-typescale-title-small-line-height:  20px;
+  --md-sys-typescale-title-small-tracking:     0.1px;
+
+  /* Body */
+  --md-sys-typescale-body-large-size:        16px;
+  --md-sys-typescale-body-large-line-height: 24px;
+  --md-sys-typescale-body-large-tracking:    0.5px;
+  --md-sys-typescale-body-medium-size:        14px;
+  --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-medium-tracking:    0.25px;
+  --md-sys-typescale-body-small-size:         12px;
+  --md-sys-typescale-body-small-line-height:  16px;
+  --md-sys-typescale-body-small-tracking:     0.4px;
+
+  /* Label */
+  --md-sys-typescale-label-large-size:        14px;
+  --md-sys-typescale-label-large-line-height: 20px;
+  --md-sys-typescale-label-large-tracking:    0.1px;
+  --md-sys-typescale-label-medium-size:        12px;
+  --md-sys-typescale-label-medium-line-height: 16px;
+  --md-sys-typescale-label-medium-tracking:    0.5px;
+  --md-sys-typescale-label-small-size:         11px;
+  --md-sys-typescale-label-small-line-height:  16px;
+  --md-sys-typescale-label-small-tracking:     0.5px;
+
+  /* ────────────────────────────────────────────────────────
+     sys.shape · corner sizes
+     ──────────────────────────────────────────────────────── */
+  --md-sys-shape-corner-none:                       0;
+  --md-sys-shape-corner-extra-small:                4px;
+  --md-sys-shape-corner-extra-small-top:            4px 4px 0 0;
+  --md-sys-shape-corner-small:                      8px;
+  --md-sys-shape-corner-medium:                     12px;
+  --md-sys-shape-corner-large:                      16px;
+  --md-sys-shape-corner-large-end:                  0 16px 16px 0;
+  --md-sys-shape-corner-large-top:                  16px 16px 0 0;
+  --md-sys-shape-corner-extra-large:                28px;
+  --md-sys-shape-corner-extra-large-top:            28px 28px 0 0;
+  --md-sys-shape-corner-full:                       9999px;
+
+  /* ────────────────────────────────────────────────────────
+     sys.elevation · 6 levels (M3 spec, key + ambient shadow)
+     ──────────────────────────────────────────────────────── */
+  --md-sys-elevation-level0: none;
+  --md-sys-elevation-level1: 0 1px 2px 0 rgba(0,0,0,.30), 0 1px 3px 1px rgba(0,0,0,.15);
+  --md-sys-elevation-level2: 0 1px 2px 0 rgba(0,0,0,.30), 0 2px 6px 2px rgba(0,0,0,.15);
+  --md-sys-elevation-level3: 0 1px 3px 0 rgba(0,0,0,.30), 0 4px 8px 3px rgba(0,0,0,.15);
+  --md-sys-elevation-level4: 0 2px 3px 0 rgba(0,0,0,.30), 0 6px 10px 4px rgba(0,0,0,.15);
+  --md-sys-elevation-level5: 0 4px 4px 0 rgba(0,0,0,.30), 0 8px 12px 6px rgba(0,0,0,.15);
+
+  /* ────────────────────────────────────────────────────────
+     sys.state · state-layer opacities (M3 spec values)
+     ──────────────────────────────────────────────────────── */
+  --md-sys-state-hover-state-layer-opacity:    0.08;
+  --md-sys-state-focus-state-layer-opacity:    0.10;
+  --md-sys-state-pressed-state-layer-opacity:  0.10;
+  --md-sys-state-dragged-state-layer-opacity:  0.16;
+
+  /* Disabled content/container opacities (M3 spec) */
+  --md-sys-state-disabled-content-opacity:   0.38;
+  --md-sys-state-disabled-container-opacity: 0.12;
+
+  /* ────────────────────────────────────────────────────────
+     sys.motion · durations + easings (M3 spec)
+     ──────────────────────────────────────────────────────── */
+  --md-sys-motion-duration-short1:        50ms;
+  --md-sys-motion-duration-short2:        100ms;
+  --md-sys-motion-duration-short3:        150ms;
+  --md-sys-motion-duration-short4:        200ms;
+  --md-sys-motion-duration-medium1:       250ms;
+  --md-sys-motion-duration-medium2:       300ms;
+  --md-sys-motion-duration-medium3:       350ms;
+  --md-sys-motion-duration-medium4:       400ms;
+  --md-sys-motion-duration-long1:         450ms;
+  --md-sys-motion-duration-long2:         500ms;
+  --md-sys-motion-duration-long3:         550ms;
+  --md-sys-motion-duration-long4:         600ms;
+  --md-sys-motion-duration-extra-long1:   700ms;
+  --md-sys-motion-duration-extra-long2:   800ms;
+  --md-sys-motion-duration-extra-long3:   900ms;
+  --md-sys-motion-duration-extra-long4:   1000ms;
+
+  --md-sys-motion-easing-linear:                  cubic-bezier(0, 0, 1, 1);
+  --md-sys-motion-easing-standard:                cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-standard-accelerate:     cubic-bezier(0.3, 0, 1, 1);
+  --md-sys-motion-easing-standard-decelerate:     cubic-bezier(0, 0, 0, 1);
+  --md-sys-motion-easing-emphasized:              cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-accelerate:   cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-sys-motion-easing-emphasized-decelerate:   cubic-bezier(0.05, 0.7, 0.1, 1);
+
+  /* ────────────────────────────────────────────────────────
+     Legacy aliases · keep older JOOLA token names working
+     so previously-built preview cards still inherit the M3
+     brand font + colors instead of falling back to
+     system-default sans-serif.
+     ──────────────────────────────────────────────────────── */
+  --font-brand:    var(--md-sys-typescale-font-brand);
+  --font-sans:     var(--md-sys-typescale-font-brand);
+  --font-display:  var(--md-sys-typescale-font-brand);
+  --font-plain:    var(--md-sys-typescale-font-brand);
+  --font-mono:     var(--md-sys-typescale-font-mono);
+  --font-mono-brand: var(--md-sys-typescale-font-mono);
+
+  --bg-1:        var(--md-sys-color-surface);
+  --bg-2:        var(--md-sys-color-surface-container);
+  --bg-3:        var(--md-sys-color-surface-container-high);
+  --bg-inverse:  var(--md-sys-color-inverse-surface);
+
+  --fg-1:        var(--md-sys-color-on-surface);
+  --fg-2:        var(--md-sys-color-on-surface);
+  --fg-3:        var(--md-sys-color-on-surface-variant);
+  --fg-4:        var(--md-sys-color-outline);
+  --fg-inverse:  var(--md-sys-color-inverse-on-surface);
+
+  --border-1:    var(--md-sys-color-outline-variant);
+  --border-2:    var(--md-sys-color-outline);
+  --border-strong: var(--md-sys-color-on-surface);
+
+  --accent:        var(--md-sys-color-primary);
+  --accent-hover:  var(--md-sys-color-on-primary-container);
+  --accent-on:     var(--md-sys-color-on-primary);
+
+  /* JOOLA brand chromatic constants — explicit hex so the
+     'Brand' preview cards (logos, accents, trinity symbol)
+     render with their intended colors regardless of theme. */
+  --joola-black:       #000000;
+  --joola-ink:         #1A1B1C;
+  --joola-graphite:    #303133;
+  --joola-stone:       #5F6062;
+  --joola-mist:        #ACADAF;
+  --joola-fog:         #E3E5E6;
+  --joola-paper:       #F1F3F4;
+  --joola-white:       #FFFFFF;
+  --joola-yellow:      #EFE158;
+  --joola-yellow-deep: #B6A926;
+  --joola-yellow-soft: #FAF3CA;
+  --joola-red:         #DC362E;
+  --joola-court-blue:  #2D3034;
+  --joola-sky:         #5B5E62;
+  --joola-court-green: #51664D;
+}
+
+/* ────────────────────────────────────────────────────────
+   sys.color · DARK
+   Apply by adding `.theme-dark` (or `[data-theme="dark"]`)
+   to <html> / <body>.
+   ──────────────────────────────────────────────────────── */
+.theme-dark, [data-theme="dark"] {
+  --md-sys-color-primary:                       #FFFFFF;
+  --md-sys-color-on-primary:                    #000000;
+  --md-sys-color-primary-container:             var(--md-ref-palette-neutral22);
+  --md-sys-color-on-primary-container:          #FFFFFF;
+  --md-sys-color-inverse-primary:               #000000;
+
+  --md-sys-color-secondary:                     var(--md-ref-palette-secondary80);
+  --md-sys-color-on-secondary:                  var(--md-ref-palette-secondary20);
+  --md-sys-color-secondary-container:           var(--md-ref-palette-secondary30);
+  --md-sys-color-on-secondary-container:        var(--md-ref-palette-secondary90);
+
+  /* tertiary removed — see light theme note */
+
+  --md-sys-color-error:                         var(--md-ref-palette-error80);
+  --md-sys-color-on-error:                      var(--md-ref-palette-error20);
+  --md-sys-color-error-container:               var(--md-ref-palette-error30);
+  --md-sys-color-on-error-container:            var(--md-ref-palette-error90);
+
+  --md-sys-color-success:                       var(--md-ref-palette-success80);
+  --md-sys-color-on-success:                    var(--md-ref-palette-success20);
+  --md-sys-color-success-container:             var(--md-ref-palette-success30);
+  --md-sys-color-on-success-container:          var(--md-ref-palette-success90);
+
+  --md-sys-color-warning:                       var(--md-ref-palette-warning80);
+  --md-sys-color-on-warning:                    var(--md-ref-palette-warning20);
+  --md-sys-color-warning-container:             var(--md-ref-palette-warning30);
+  --md-sys-color-on-warning-container:          var(--md-ref-palette-warning90);
+
+  --md-sys-color-background:                    var(--md-ref-palette-neutral6);
+  --md-sys-color-on-background:                 var(--md-ref-palette-neutral90);
+
+  --md-sys-color-surface:                       var(--md-ref-palette-neutral6);
+  --md-sys-color-on-surface:                    var(--md-ref-palette-neutral90);
+  --md-sys-color-surface-variant:               var(--md-ref-palette-neutral-variant30);
+  --md-sys-color-on-surface-variant:            var(--md-ref-palette-neutral-variant80);
+  --md-sys-color-inverse-surface:               var(--md-ref-palette-neutral90);
+  --md-sys-color-inverse-on-surface:            var(--md-ref-palette-neutral20);
+
+  --md-sys-color-surface-dim:                   var(--md-ref-palette-neutral6);
+  --md-sys-color-surface-bright:                var(--md-ref-palette-neutral24);
+  --md-sys-color-surface-container-lowest:      var(--md-ref-palette-neutral4);
+  --md-sys-color-surface-container-low:         var(--md-ref-palette-neutral10);
+  --md-sys-color-surface-container:             var(--md-ref-palette-neutral12);
+  --md-sys-color-surface-container-high:        var(--md-ref-palette-neutral17);
+  --md-sys-color-surface-container-highest:     var(--md-ref-palette-neutral22);
+
+  --md-sys-color-outline:                       var(--md-ref-palette-neutral-variant60);
+  --md-sys-color-outline-variant:               var(--md-ref-palette-neutral-variant30);
+}
+
+/* ────────────────────────────────────────────────────────
+   Sensible page defaults bound to the M3 surface roles
+   ──────────────────────────────────────────────────────── */
+html { color-scheme: light; }
+html.theme-dark, html[data-theme="dark"] { color-scheme: dark; }
+body {
+  background: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  font-family: var(--md-sys-typescale-font-brand);
+  margin: 0;
+}
+
+::selection {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* ────────────────────────────────────────────────────────
+   BRAND EXPRESSION LAYER (extra · outside the M3 scheme)
+   ------------------------------------------------------
+   Heritage JOOLA brand colors. They aren't part of any
+   md.sys.color role — keep them for logos, the trinity
+   symbol, and product/marketing surfaces that want raw
+   brand identity. Don't reach for these in app UI; use the
+   M3 roles above.
+   ──────────────────────────────────────────────────────── */
+:root {
+  --joola-black:        #0A0A0A;
+  --joola-ink:          #1E1E1E;
+  --joola-graphite:     #3A3A3A;
+  --joola-stone:        #6B6B6B;
+  --joola-mist:         #B8B8B8;
+  --joola-fog:          #E5E5E5;
+  --joola-paper:        #F5F4F1;
+  --joola-white:        #FFFFFF;
+
+  --joola-yellow:       #F5E625;
+  --joola-yellow-deep:  #D9CB1F;
+  --joola-yellow-soft:  #FFF4A8;
+  --joola-red:          #D6182A;
+  --joola-red-deep:     #A30E1E;
+  --joola-court-blue:   #0B2A4A;
+  --joola-sky:          #2C7AD6;
+  --joola-court-green:  #2E7D5B;
+
+  /* Legacy aliases — older brand cards reference these */
+  --bg-1: var(--md-sys-color-surface);
+  --bg-2: var(--md-sys-color-surface-container-low);
+  --fg-3: var(--md-sys-color-on-surface-variant);
+  --fg-4: var(--md-sys-color-outline);
+  --border-1: var(--md-sys-color-outline-variant);
+  --font-sans: var(--md-sys-typescale-font-brand);
+  --font-mono: var(--md-sys-typescale-font-mono);
+}

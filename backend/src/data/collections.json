@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "note": "JOOLA storefront collection links — open in new tab",
+  "collections": [
+    {
+      "id": "all-paddles",
+      "label": "All Paddles",
+      "url": "https://joola.com/collections/pickleball-paddles",
+      "description": "Browse the complete JOOLA pickleball paddle lineup"
+    },
+    {
+      "id": "pro-paddles",
+      "label": "Pro Paddles",
+      "url": "https://joola.com/collections/professional-pickleball-paddles",
+      "description": "Professional-grade paddles for competitive play"
+    },
+    {
+      "id": "pro-v",
+      "label": "Pro V",
+      "url": "https://joola.com/collections/pro-v",
+      "description": "The flagship Pro V paddle series"
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "url": "https://joola.com/collections/pickleball-paddles-performance",
+      "description": "Performance paddles for intermediate to advanced players"
+    },
+    {
+      "id": "recreational",
+      "label": "Recreational",
+      "url": "https://joola.com/collections/recreational-pickleball-paddles",
+      "description": "Great paddles for recreational play and beginners"
+    },
+    {
+      "id": "3s-paddles",
+      "label": "3S",
+      "url": "https://joola.com/collections/joola-3s",
+      "description": "The 3S spin-focused paddle series"
+    }
+  ],
+  "apiLinks": [
+    {
+      "id": "shopify-products",
+      "label": "Products JSON (Shopify API)",
+      "url": "https://joola.com/products.json?limit=250"
+    },
+    {
+      "id": "shopify-collection",
+      "label": "Collection JSON (Shopify API)",
+      "url": "https://joola.com/collections/pickleball-paddles.json?limit=250"
+    }
+  ]
+}

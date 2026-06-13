@@ -1,0 +1,415 @@
+{
+  "version": "1.1.0",
+  "products": [
+    {
+      "id": "agassi-heat-vision",
+      "name": "Agassi Edge Heat Vision",
+      "slug": "agassi-heat-vision",
+      "imageUrl": "/images/paddles/paddle-agassi-royal.jpg",
+      "productUrl": "https://joola.com/products/joola-agassi-edge-heat-vision-pickleball-paddle",
+      "price": null,
+      "tags": ["Heat Vision", "Carbon Fiber", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "agassi-champion",
+      "name": "Agassi Champion 12mm",
+      "slug": "agassi-champion",
+      "imageUrl": "/images/paddles/paddle-agassi-royal.jpg",
+      "productUrl": "https://joola.com/products/agassi-champion-12mm-pickleball-paddle",
+      "price": null,
+      "tags": ["Recreational", "Control", "Beginner-Friendly"],
+      "isActive": true
+    },
+    {
+      "id": "agassi-pro-v",
+      "name": "Agassi PRO V",
+      "slug": "agassi-pro-v",
+      "imageUrl": "/images/paddles/paddle-agassi-royal.jpg",
+      "productUrl": "https://joola.com/products/joola-agassi-pro-v-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro V", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "agassi-pro-iv",
+      "name": "Agassi Pro IV",
+      "slug": "agassi-pro-iv",
+      "imageUrl": "/images/paddles/paddle-agassi-royal.jpg",
+      "productUrl": "https://joola.com/products/joola-agassi-pro-16mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "ben-johns-hyperion-gen1-16mm",
+      "name": "JOOLA Ben Johns Hyperion Gen 1 16mm",
+      "slug": "ben-johns-hyperion-gen1-16mm",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-cfs",
+      "price": null,
+      "tags": ["CFS Technology", "Power", "Signature"],
+      "isActive": true
+    },
+    {
+      "id": "joola-hyperion-gen1-16mm",
+      "name": "JOOLA Hyperion Gen 1 16mm",
+      "slug": "joola-hyperion-gen1-16mm",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-cfs",
+      "price": null,
+      "tags": ["CFS Technology", "Power", "Control"],
+      "isActive": true
+    },
+    {
+      "id": "vision-cgs-3s-14mm",
+      "name": "JOOLA Vision CGS 3S 14mm",
+      "slug": "vision-cgs-3s-14mm",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/vision-cgs-14mm-pickleball-paddle",
+      "price": null,
+      "tags": ["CGS Technology", "3S", "Control", "Spin"],
+      "isActive": true
+    },
+    {
+      "id": "vision-cgs-3s-16mm",
+      "name": "JOOLA Vision CGS 3S 16mm",
+      "slug": "vision-cgs-3s-16mm",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/vision-cgs-16mm-pickleball-paddle",
+      "price": null,
+      "tags": ["CGS Technology", "3S", "Control", "Spin"],
+      "isActive": true
+    },
+    {
+      "id": "perseus-heat-vision",
+      "name": "Perseus Heat Vision",
+      "slug": "perseus-heat-vision",
+      "imageUrl": "/images/paddles/paddle-perseus-red.jpg",
+      "productUrl": "https://joola.com/products/joola-perseus-heat-vision-pickleball-paddle",
+      "price": null,
+      "tags": ["Heat Vision", "Carbon Fiber", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "perseus-double-vision",
+      "name": "Perseus Double Vision",
+      "slug": "perseus-double-vision",
+      "imageUrl": "/images/paddles/paddle-perseus-red.jpg",
+      "productUrl": "https://joola.com/products/perseus-double-vision",
+      "price": null,
+      "tags": ["Double Vision", "Carbon Fiber", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "perseus-3s-dual",
+      "name": "Perseus 3S Dual",
+      "slug": "perseus-3s-dual",
+      "imageUrl": "/images/paddles/paddle-perseus-red.jpg",
+      "productUrl": "https://joola.com/products/joola-perseus-3s-dual-16mm-pickleball-paddle",
+      "price": null,
+      "tags": ["3S Technology", "Spin", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "perseus-pro-v",
+      "name": "Perseus PRO V",
+      "slug": "perseus-pro-v",
+      "imageUrl": "/images/paddles/paddle-perseus-red.jpg",
+      "productUrl": "https://joola.com/products/joola-perseus-pro-v-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro V", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "perseus-pro-iv",
+      "name": "Perseus Pro IV",
+      "slug": "perseus-pro-iv",
+      "imageUrl": "/images/paddles/paddle-perseus-red.jpg",
+      "productUrl": "https://joola.com/products/joola-perseus-iv-16mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "perseus-pro-v-simone",
+      "name": "Perseus PRO V Simone",
+      "slug": "perseus-pro-v-simone",
+      "imageUrl": "/images/paddles/paddle-perseus-red.jpg",
+      "productUrl": "https://joola.com/products/joola-perseus-pro-v-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro V", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "graf-champion",
+      "name": "Graf Champion",
+      "slug": "graf-champion",
+      "imageUrl": null,
+      "productUrl": null,
+      "price": null,
+      "tags": ["Recreational", "Control"],
+      "isActive": true
+    },
+    {
+      "id": "graf-pro-v",
+      "name": "Graf PRO V",
+      "slug": "graf-pro-v",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/joola-graf-pro-v-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro V", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "graf-pro-iv",
+      "name": "Graf Pro IV",
+      "slug": "graf-pro-iv",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/joola-graf-pro-16mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "hyperion-3s-dual",
+      "name": "Hyperion 3S Dual",
+      "slug": "hyperion-3s-dual",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-3s-dual-16mm-pickleball-paddle",
+      "price": null,
+      "tags": ["3S Technology", "Spin", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "hyperion-double-vision",
+      "name": "Hyperion Double Vision",
+      "slug": "hyperion-double-vision",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-double-vision-pickleball-paddle",
+      "price": null,
+      "tags": ["Double Vision", "Carbon Fiber", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "hyperion-pro-v",
+      "name": "Hyperion PRO V",
+      "slug": "hyperion-pro-v",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-pro-v-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro V", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "hyperion-pro-iv",
+      "name": "Hyperion Pro IV",
+      "slug": "hyperion-pro-iv",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-iv-16mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "scorpeus-heat-vision",
+      "name": "Scorpeus Heat Vision",
+      "slug": "scorpeus-heat-vision",
+      "imageUrl": "/images/paddles/paddle-scorpeus-yellow.jpg",
+      "productUrl": "https://joola.com/products/joola-scorpeus-heat-vision-pickleball-paddle",
+      "price": null,
+      "tags": ["Heat Vision", "Carbon Fiber", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "scorpeus-double-vision",
+      "name": "Scorpeus Double Vision",
+      "slug": "scorpeus-double-vision",
+      "imageUrl": "/images/paddles/paddle-scorpeus-yellow.jpg",
+      "productUrl": "https://joola.com/products/joola-scorpeus-double-vision-pickleball-paddle",
+      "price": null,
+      "tags": ["Double Vision", "Carbon Fiber", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "scorpeus-3s-dual",
+      "name": "Scorpeus 3S Dual",
+      "slug": "scorpeus-3s-dual",
+      "imageUrl": "/images/paddles/paddle-scorpeus-yellow.jpg",
+      "productUrl": "https://joola.com/products/joola-scorpeus-3s-dual-14mm-pickleball-paddle",
+      "price": null,
+      "tags": ["3S Technology", "Spin", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "scorpeus-pro-v",
+      "name": "Scorpeus PRO V",
+      "slug": "scorpeus-pro-v",
+      "imageUrl": "/images/paddles/paddle-scorpeus-yellow.jpg",
+      "productUrl": "https://joola.com/products/scorpeus-pro-v-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro V", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "scorpeus-pro-iv",
+      "name": "Scorpeus Pro IV",
+      "slug": "scorpeus-pro-iv",
+      "imageUrl": "/images/paddles/paddle-scorpeus-yellow.jpg",
+      "productUrl": "https://joola.com/products/joola-scorpeus-iv-16mm-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "magnus-3s-dual",
+      "name": "Magnus 3S Dual",
+      "slug": "magnus-3s-dual",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/joola-magnus-3s-dual-14mm-pickleball-paddle",
+      "price": null,
+      "tags": ["3S Technology", "Spin", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "kosmos-pro-v",
+      "name": "Kosmos PRO V",
+      "slug": "kosmos-pro-v",
+      "imageUrl": "/images/paddles/paddle-kosmos-green.jpg",
+      "productUrl": "https://joola.com/products/kosmos-pro-v-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro V", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "simone-hyperion-pro-iv",
+      "name": "Simone Hyperion Pro IV",
+      "slug": "simone-hyperion-pro-iv",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-iv-14mm-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "dash-pickleball-paddle",
+      "name": "Dash Pickleball Paddle",
+      "slug": "dash-pickleball-paddle",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/joola-dash-pickleball-paddle",
+      "price": null,
+      "tags": ["Recreational", "Beginner-Friendly"],
+      "isActive": true
+    },
+    {
+      "id": "hyperion-vision",
+      "name": "Hyperion Vision",
+      "slug": "hyperion-vision",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/hyperion-vision-16mm",
+      "price": null,
+      "tags": ["Vision", "Carbon Fiber", "Performance"],
+      "isActive": true
+    },
+    {
+      "id": "scorpeus-pro-iv-14mm",
+      "name": "Scorpeus Pro IV 14mm",
+      "slug": "scorpeus-pro-iv-14mm",
+      "imageUrl": "/images/paddles/paddle-scorpeus-yellow.jpg",
+      "productUrl": "https://joola.com/products/joola-scorpeus-iv-14mm-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition", "Anna Bright"],
+      "isActive": true
+    },
+    {
+      "id": "magnus-pro-iv-16mm",
+      "name": "Magnus Pro IV 16mm",
+      "slug": "magnus-pro-iv-16mm",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/joola-magnus-iv-16mm-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "magnus-pro-iv-14mm",
+      "name": "Magnus Pro IV 14mm",
+      "slug": "magnus-pro-iv-14mm",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/joola-magnus-iv-14mm-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "perseus-pro-iv-14mm",
+      "name": "Perseus Pro IV 14mm",
+      "slug": "perseus-pro-iv-14mm",
+      "imageUrl": "/images/paddles/paddle-perseus-red.jpg",
+      "productUrl": "https://joola.com/products/joola-perseus-iv-14mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "hyperion-pro-iv-14mm",
+      "name": "Hyperion Pro IV 14mm",
+      "slug": "hyperion-pro-iv-14mm",
+      "imageUrl": "/images/paddles/paddle-hyperion-blue.jpg",
+      "productUrl": "https://joola.com/products/joola-hyperion-iv-14mm-pickleball-paddle",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "agassi-pro-16mm",
+      "name": "Agassi Pro 16mm",
+      "slug": "agassi-pro-16mm",
+      "imageUrl": "/images/paddles/paddle-agassi-royal.jpg",
+      "productUrl": "https://joola.com/products/joola-agassi-pro-16mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "agassi-pro-14mm",
+      "name": "Agassi Pro 14mm",
+      "slug": "agassi-pro-14mm",
+      "imageUrl": "/images/paddles/paddle-agassi-royal.jpg",
+      "productUrl": "https://joola.com/products/joola-agassi-pro-14mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "graf-pro-16mm",
+      "name": "Graf Pro 16mm",
+      "slug": "graf-pro-16mm",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/joola-graf-pro-16mm-pickleball-paddle-1",
+      "price": null,
+      "tags": ["Pro IV", "Carbon Fiber", "Signature", "Competition"],
+      "isActive": true
+    },
+    {
+      "id": "astral-pickleball-paddle",
+      "name": "Astral Pickleball Paddle",
+      "slug": "astral-pickleball-paddle",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/astral-pickleball-paddle",
+      "price": null,
+      "tags": ["Recreational", "Beginner-Friendly"],
+      "isActive": true
+    },
+    {
+      "id": "beacon-pickleball-paddle",
+      "name": "Beacon Pickleball Paddle",
+      "slug": "beacon-pickleball-paddle",
+      "imageUrl": null,
+      "productUrl": "https://joola.com/products/beacon-pickleball-paddle",
+      "price": null,
+      "tags": ["Recreational", "Beginner-Friendly"],
+      "isActive": true
+    }
+  ]
+}

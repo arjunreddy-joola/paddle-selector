@@ -1,0 +1,137 @@
+/* ============================================================
+   JOOLA Design System — Colors & Type
+   Source: joola.com (Shopify storefront)
+   ============================================================ */
+
+/* -----  Font faces (Google Font substitutes — see README) ----- */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- BRAND CORE ---------- */
+  --joola-black:      #000000;   /* primary brand color; wordmark, header, CTAs */
+  --joola-white:      #ffffff;   /* primary background */
+
+  /* ---------- PADDLE ACCENTS (product-line colors) ---------- */
+  --blaze-red:        #d9232b;   /* Ben Johns — Perseus Pro V */
+  --breeze-blue:      #2a5fae;   /* Simone Jardim — Perseus Pro V */
+  --surge-green:      #7cb342;   /* Federico/Tyson — Kosmos Pro V */
+  --joola-yellow:     #f4c021;   /* Anna Bright — Scorpeus Pro V */
+  --club-green:       #1f5a3a;   /* Collin Johns — Scorpeus Pro V */
+  --bolt-blue:        #1e9bd7;   /* Hyperion Pro V */
+  --royal-blue:       #1f3a8a;   /* Agassi Pro V */
+  --seaside-green:    #2fb8a8;   /* Graf Pro V */
+
+  /* ---------- NEUTRAL SCALE ---------- */
+  --ink-100: #f4f4f4;
+  --ink-200: #e5e5e5;
+  --ink-300: #cfcfcf;
+  --ink-400: #9a9a9a;
+  --ink-500: #6b6b6b;
+  --ink-600: #3a3a3a;
+  --ink-700: #1a1a1a;
+  --ink-800: #0a0a0a;
+  --ink-900: #000000;
+
+  /* ---------- SEMANTIC ---------- */
+  --fg-1: var(--joola-black);           /* primary text */
+  --fg-2: var(--ink-600);                /* secondary text */
+  --fg-3: var(--ink-500);                /* tertiary / meta */
+  --fg-inv: var(--joola-white);          /* on dark */
+
+  --bg-1: var(--joola-white);            /* page bg */
+  --bg-2: var(--ink-100);                /* card / section bg */
+  --bg-3: var(--ink-200);                /* subtle hover */
+  --bg-dark: var(--joola-black);         /* dark hero */
+
+  --border-1: var(--ink-200);
+  --border-2: var(--ink-300);
+  --border-strong: var(--joola-black);
+
+  --accent: var(--blaze-red);            /* primary accent (NEW / sale) */
+  --accent-fg: var(--joola-white);
+
+  --success: var(--surge-green);
+  --warning: var(--joola-yellow);
+  --danger:  var(--blaze-red);
+
+  /* ---------- TYPE STACKS ---------- */
+  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;         /* bold condensed industrial — JOOLA wordmark vibe */
+  --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;           /* readable body */
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ---------- TYPE SCALE ---------- */
+  --fs-hero:  clamp(56px, 9vw, 128px);   /* @kind font */  /* oversized display — "Energy Unlocked" */
+  --fs-h1:    clamp(40px, 5vw, 72px);     /* @kind font */
+  --fs-h2:    clamp(28px, 3.5vw, 48px);   /* @kind font */
+  --fs-h3:    24px;
+  --fs-h4:    18px;
+  --fs-body:  16px;
+  --fs-small: 13px;
+  --fs-micro: 11px;
+
+  --lh-tight: 0.95;  /* @kind font */
+  --lh-snug:  1.1;   /* @kind font */
+  --lh-body:  1.5;   /* @kind font */
+
+  --tracking-display: -0.02em;   /* display: slightly tightened */
+  --tracking-eyebrow: 0.12em;    /* eyebrow caps: wide */
+  --tracking-body: 0;
+
+  /* ---------- SPACING ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* ---------- RADII ---------- */
+  --radius-0: 0px;       /* default — JOOLA is HARD-EDGED */
+  --radius-1: 2px;       /* buttons (subtle) */
+  --radius-2: 4px;       /* cards (subtle) */
+  --radius-pill: 999px;  /* badges only */
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-2: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-3: 0 12px 32px rgba(0,0,0,0.12);
+
+  /* ---------- MOTION ---------- */
+  --ease-out: cubic-bezier(.2,.8,.2,1);    /* @kind other */
+  --ease-in-out: cubic-bezier(.4,0,.2,1);  /* @kind other */
+  --dur-fast: 120ms;  /* @kind other */
+  --dur-med:  200ms;  /* @kind other */
+  --dur-slow: 400ms;  /* @kind other */
+}
+
+/* ===== Semantic element styles ===== */
+html, body { background: var(--bg-1); color: var(--fg-1); font-family: var(--font-body); font-size: var(--fs-body); line-height: var(--lh-body); -webkit-font-smoothing: antialiased; }
+
+.display, h1.hero {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: var(--fs-hero);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  text-transform: none;
+}
+h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--tracking-display); }
+h2 { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-h2); line-height: var(--lh-snug); letter-spacing: var(--tracking-display); text-transform: uppercase; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-h3); line-height: var(--lh-snug); }
+h4 { font-family: var(--font-body); font-weight: 700; font-size: var(--fs-h4); line-height: var(--lh-snug); }
+p  { font-family: var(--font-body); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-micro);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-1);
+}
+
+code, pre { font-family: var(--font-mono); font-size: 13px; }

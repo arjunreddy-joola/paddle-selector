@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JOOLA Storefront UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  body { margin: 0; font-family: 'Inter', sans-serif; background: #fff; color: #000; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
+</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="Header.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="ProductCard.jsx"></script>
+<script type="text/babel" src="ProductGrid.jsx"></script>
+<script type="text/babel" src="ProductDetail.jsx"></script>
+<script type="text/babel" src="Cart.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+
+<script type="text/babel">
+const PRODUCTS = [
+  { id: 'perseus', name: 'JOOLA Perseus Pro V', price: 299.95, isNew: true, image: '../../assets/imagery/paddle-perseus-red.jpg',
+    description: 'The Perseus shape delivers an elongated sweet spot with the control of a classic. Engineered with next-gen carbon surface for unmatched spin and feel.',
+    colors: [{ name: 'Blaze Red (Ben Johns)', hex: '#D9232B' }, { name: 'Breeze Blue (Simone Jardim)', hex: '#2A5FAE' }] },
+  { id: 'kosmos', name: 'JOOLA Kosmos Pro V', price: 299.95, isNew: true, image: '../../assets/imagery/paddle-kosmos-green.jpg',
+    description: 'The Kosmos is built for power players. Balanced weight distribution and reactive core for explosive drives.',
+    colors: [{ name: 'Surge Green (Federico Staksrud)', hex: '#7CB342' }] },
+  { id: 'scorpeus', name: 'JOOLA Scorpeus Pro V', price: 299.95, isNew: true, image: '../../assets/imagery/paddle-scorpeus-yellow.jpg',
+    description: 'A wide-body shape for maximum forgiveness. Scorpeus gives you confidence at the kitchen line and pop on put-aways.',
+    colors: [{ name: 'JOOLA Yellow (Anna Bright)', hex: '#F4C021' }, { name: 'Club Green (Collin Johns)', hex: '#1F5A3A' }] },
+  { id: 'hyperion', name: 'JOOLA Hyperion Pro V', price: 299.95, isNew: true, image: '../../assets/imagery/paddle-hyperion-blue.jpg',
+    description: 'Elongated, aerodynamic, relentless. The Hyperion shape for reach and spin.',
+    colors: [{ name: 'Bolt Blue', hex: '#1E9BD7' }] },
+  { id: 'agassi', name: 'JOOLA Agassi Pro V', price: 299.95, isNew: true, image: '../../assets/imagery/paddle-agassi-royal.jpg',
+    description: 'Designed with the eight-time major champion. Classic feel, tournament-ready.',
+    colors: [{ name: 'Royal Blue', hex: '#1F3A8A' }] },
+];
+
+function App() {
+  const [view, setView] = React.useState(() => localStorage.getItem('joola.view') || 'home');
+  const [current, setCurrent] = React.useState(null);
+  const [cart, setCart] = React.useState(() => JSON.parse(localStorage.getItem('joola.cart') || '[]'));
+
+  React.useEffect(() => { localStorage.setItem('joola.view', view); }, [view]);
+  React.useEffect(() => { localStorage.setItem('joola.cart', JSON.stringify(cart)); }, [cart]);
+  React.useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
+
+  const openProduct = p => { setCurrent(p); setView('pdp'); window.scrollTo(0, 0); };
+  const addToCart = it => setCart(c => [...c, it]);
+  const removeFromCart = i => setCart(c => c.filter((_, j) => j !== i));
+  const nav = v => { setView(v); window.scrollTo(0, 0); };
+
+  return (
+    <div>
+      <Header onNavigate={nav} cartCount={cart.length} />
+      {view === 'home' && (<>
+        <Hero onShopClick={() => openProduct(PRODUCTS[0])} />
+        <ProductGrid products={PRODUCTS.slice(0, 4)} onProductClick={openProduct} />
+      </>)}
+      {view === 'pdp' && current && <ProductDetail p={current} onAddToCart={addToCart} onBack={() => nav('home')} />}
+      {view === 'cart' && <Cart items={cart} onBack={() => nav('home')} onRemove={removeFromCart} />}
+      <Footer />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
