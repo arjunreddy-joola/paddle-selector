@@ -42,7 +42,8 @@ class DuprService:
         result = self._rec_service.get_recommendation(synthesized)
 
         if result.matchType == "none":
-            return result, False
+            overridden = self._apply_dupr_override(band, user_answers.get("playPriority", "balance"))
+            return overridden, True
 
         excel_top = result.recommendedForYou.productName if result.recommendedForYou else None
         if excel_top and excel_top not in band.primaryPool:
