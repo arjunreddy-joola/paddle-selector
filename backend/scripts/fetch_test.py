@@ -15,3 +15,4 @@ for p in paddles[:10]:   # first 10 so it's readable
     print(f'   price: ${variant.get("price", "?")}')
     print(f'   url:   https://joola.com/products/{p["handle"]}')
     print(f'   image: {image}\n')
+    print(f'   tags: {p.get("tags")}\n')
