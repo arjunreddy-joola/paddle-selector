@@ -42,6 +42,17 @@ def _validate_data_on_startup() -> None:
             f"{len(missing)} rules missing merchandising data (requiresMerchandisingReview=true). "
             "Run: python scripts/import_from_excel.py --file <path>"
         )
+    # Check which recommended paddles actually match a catalog product.
+    # Logs an actionable list of names that need attention (e.g. discontinued
+    # models or naming mismatches between the rules and the live store).
+    all_names: list[str] = []
+    for r in rules:
+        if r.recommendedForYou:
+            all_names.append(r.recommendedForYou.productName)
+        if r.bestSeller:
+            all_names.append(r.bestSeller.productName)
+        all_names.extend(r.otherPaddles)
+    p_repo.report_unmatched(all_names)
 
     dupr_bands = dupr_repo.get_all()
     dupr_flow = q_repo.get_dupr_flow()

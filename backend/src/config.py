@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     )
     data_dir: str = Field(default="src/data", alias="DATA_DIR")
     sessions_file: str = Field(default="src/data/sessions.json", alias="SESSIONS_FILE")
+    shopify_store_url: str = Field(default="", alias="SHOPIFY_STORE_URL")
 
     model_config = {"env_file": ".env", "populate_by_name": True, "extra": "ignore"}
 

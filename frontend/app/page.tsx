@@ -411,25 +411,132 @@ function PaddleCardInline({
   const ctaUrl = product?.productUrl ?? SHOP_FALLBACK;
   const ctaLabel = product?.productUrl ? "View paddle →" : "Shop JOOLA →";
 
+  // ── Featured: large vertical store-style card ──
+  if (featured) {
+    return (
+      <div
+        style={{
+          background: "#fff",
+          border: "1px solid rgba(214,24,42,0.25)",
+          borderTop: "3px solid var(--joola-red)",
+          borderRadius: "4px",
+          overflow: "hidden",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: "240px",
+            background: "var(--surface-2)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {product?.imageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={product.imageUrl}
+              alt={result.productName}
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            />
+          ) : (
+            <Image src="/joola-trinity.png" alt="" width={48} height={48} style={{ opacity: 0.15 }} />
+          )}
+        </div>
+
+        <div style={{ padding: "1.25rem" }}>
+          {result.badge && (
+            <span className="label-overline" style={{ display: "block", marginBottom: "0.4rem", color: "var(--joola-red)" }}>
+              {result.badge}
+            </span>
+          )}
+          <p
+            style={{
+              margin: "0 0 0.3rem",
+              fontWeight: 700,
+              fontSize: "1.15rem",
+              color: "var(--text)",
+              lineHeight: 1.3,
+            }}
+          >
+            {result.productName}
+          </p>
+
+          {product?.price != null && (
+            <p style={{ margin: "0 0 0.75rem", fontSize: "1rem", color: "var(--text)", fontWeight: 500 }}>
+              ${product.price.toFixed(2)}
+            </p>
+          )}
+
+          {displayTags.length > 0 && (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginBottom: "1rem" }}>
+              {displayTags.map((tag) => (
+                <span
+                  key={tag}
+                  style={{
+                    fontSize: "0.625rem",
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border-strong)",
+                    borderRadius: "2px",
+                    padding: "0.125rem 0.5rem",
+                    color: "var(--text-muted)",
+                    fontFamily: '"FK Grotesk Mono", monospace',
+                    letterSpacing: "0.05em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <a
+            href={ctaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              textAlign: "center",
+              fontWeight: 700,
+              fontSize: "0.8125rem",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              color: "#fff",
+              background: "var(--joola-red)",
+              border: "none",
+              borderRadius: "2px",
+              padding: "0.75rem",
+              textDecoration: "none",
+            }}
+          >
+            {ctaLabel}
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Non-featured: compact row ──
   return (
     <div
       style={{
-        background: featured ? "#fff" : "var(--surface)",
-        border: featured ? "1px solid rgba(214,24,42,0.25)" : "1px solid var(--border-strong)",
-        borderLeft: featured ? "3px solid var(--joola-red)" : "1px solid var(--border-strong)",
+        background: "var(--surface)",
+        border: "1px solid var(--border-strong)",
         borderRadius: "4px",
-        padding: featured ? "1.25rem" : "0.875rem 1rem",
+        padding: "0.875rem 1rem",
         display: "flex",
         gap: "0.875rem",
         alignItems: "flex-start",
-        boxShadow: featured ? "0 2px 12px rgba(0,0,0,0.06)" : "none",
       }}
     >
       <div
         style={{
           flexShrink: 0,
-          width: featured ? "80px" : "60px",
-          height: featured ? "80px" : "60px",
+          width: "60px",
+          height: "60px",
           borderRadius: "4px",
           background: "var(--surface-2)",
           overflow: "hidden",
@@ -460,7 +567,7 @@ function PaddleCardInline({
           style={{
             margin: "0 0 0.2rem",
             fontWeight: 700,
-            fontSize: featured ? "1rem" : "0.9rem",
+            fontSize: "0.9rem",
             color: "var(--text)",
             lineHeight: 1.3,
             overflow: "hidden",
@@ -510,8 +617,8 @@ function PaddleCardInline({
             fontSize: "0.6875rem",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: featured ? "#fff" : "var(--text)",
-            background: featured ? "var(--joola-red)" : "var(--joola-yellow)",
+            color: "var(--text)",
+            background: "var(--joola-yellow)",
             border: "none",
             borderRadius: "2px",
             padding: "0.3rem 0.75rem",
