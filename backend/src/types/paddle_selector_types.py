@@ -8,12 +8,6 @@ class SessionStatus(str, Enum):
     IN_PROGRESS = "in_progress"
     COMPLETED = "completed"
 
-
-class MatchType(str, Enum):
-    EXACT = "exact"
-    NONE = "none"
-
-
 class QuestionOption(BaseModel):
     label: str
     value: str

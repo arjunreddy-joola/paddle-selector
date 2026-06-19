@@ -22,8 +22,6 @@ _NON_PADDLE_TERMS = [
     "cover", "case", "bag", "tag", "grip", "overgrip", "tape", "ball",
     "shirt", "hat", "cap", "sock", "towel", "sticker", "luggage", "apparel",
 ]
-
-
 def _is_paddle(title: str) -> bool:
     t = title.lower()
     if "paddle" not in t:
@@ -40,7 +38,7 @@ def fetch_shopify_products(store_url: str, timeout: int = 10) -> list[PaddleProd
     page = 1
     seen_handles: set[str] = set()
 
-    while page < 10:  # safety cap, same as the chatbot
+    while page < 10:
         url = f"{store_url.rstrip('/')}/products.json?limit=250&page={page}"
         resp = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=timeout)
         resp.raise_for_status()

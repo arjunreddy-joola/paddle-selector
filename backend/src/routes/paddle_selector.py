@@ -1,8 +1,5 @@
 from fastapi import APIRouter
 from src.controllers import paddle_selector_controller as ctrl
-from src.schemas.paddle_selector_schemas import (
-    CreateSessionRequest, SubmitAnswerRequest, StatelessRecommendationRequest,
-)
 
 router = APIRouter()
 

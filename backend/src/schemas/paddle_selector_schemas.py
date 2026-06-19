@@ -1,7 +1,6 @@
 from __future__ import annotations
 from pydantic import BaseModel, Field
 
-
 # ── Requests ───────────────────────────────────────────────
 
 class CreateSessionRequest(BaseModel):
@@ -105,6 +104,3 @@ class ErrorDetail(BaseModel):
     message: str
     details: dict = Field(default_factory=dict)
 
-
-class ErrorResponse(BaseModel):
-    error: ErrorDetail

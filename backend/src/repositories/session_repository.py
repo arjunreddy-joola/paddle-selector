@@ -22,9 +22,3 @@ class SessionRepository:
         sessions.append(session)
         write_json(_SESSIONS_FILENAME, {"sessions": [s.model_dump(mode="json") for s in sessions]})
         return session
-
-    def delete(self, session_id: str) -> None:
-        raw = read_json(_SESSIONS_FILENAME)
-        parsed = SessionsFile.model_validate(raw)
-        sessions = [s for s in parsed.sessions if s.id != session_id]
-        write_json(_SESSIONS_FILENAME, {"sessions": [s.model_dump(mode="json") for s in sessions]})

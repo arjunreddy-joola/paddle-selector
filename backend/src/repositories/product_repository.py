@@ -50,8 +50,8 @@ class ProductRepository:
 
         # 2. All the rule-name words appear in the product name.
         #    Among candidates, prefer the BASE model: the one whose title
-        #    has the fewest *extra* words beyond what the rule asked for.
-        #    "scorpeus pro iv" -> prefers "JOOLA Scorpeus Pro IV 16mm ..."
+        #    has the fewest yes extra words beyond what the rule asked for.
+        #    "scorpeus pro iv" -> prefers "JOOLA Scorpeus Pro IV 16mm"
         #    over "Anna Bright Scorpeus Pro IV 14mm ... - Lime Pop"
         candidates = []
         for p in self._products:
@@ -61,11 +61,24 @@ class ProductRepository:
                 has_url = 0 if p.productUrl else 1  # prefer ones with a URL
                 candidates.append((has_url, extra_words, p))
 
-        if not candidates:
-            return None
-        # Sort: URL-having first, then fewest extra words (the base model)
-        candidates.sort(key=lambda c: (c[0], c[1]))
-        return candidates[0][2]
+        if candidates:
+            candidates.sort(key=lambda c: (c[0], c[1]))
+            return candidates[0][2]
+
+        # 3. Fallback: closest partial match — handles rule names that carry a
+        #    colorway/edition word absent from the title (e.g. "Perseus Pro V Simone").
+        best, best_key = None, (0, 0, 0)
+        for p in self._products:
+            pwords = set(self._normalize(p.name).split())
+            overlap = len(target_words & pwords)
+            if overlap == 0:
+                continue
+            key = (overlap, -len(pwords - target_words), 1 if p.productUrl else 0)
+            if key > best_key:
+                best_key, best = key, p
+        if best and best_key[0] >= min(2, len(target_words)):
+            return best
+        return None
 
     def report_unmatched(self, names: list[str]) -> list[str]:
         """Given recommendation paddle names, return the ones that match no

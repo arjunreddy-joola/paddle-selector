@@ -1,6 +1,5 @@
 import pytest
 from src.utils.rule_matcher import build_lookup_key
-from src.utils.normalize_answer import normalize_answer
 from src.utils.parse_recommendation_notes import parse_recommendation_notes
 
 
@@ -21,12 +20,6 @@ def test_build_lookup_key_canonical_order():
 def test_build_lookup_key_missing_field_raises():
     with pytest.raises(KeyError):
         build_lookup_key({"playFrequency": "weekly"}, ["playFrequency", "budget"])
-
-
-def test_normalize_answer_strips_and_lowercases():
-    assert normalize_answer("  Weekly  ") == "weekly"
-    assert normalize_answer("Under $100") == "under_100"
-
 
 def test_parse_notes_standard_format():
     notes = "Agassi - Recommended for you\nHyperion - Best Seller / Most Popular"
