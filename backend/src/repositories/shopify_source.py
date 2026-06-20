@@ -65,6 +65,7 @@ def fetch_shopify_products(store_url: str, timeout: int = 10) -> list[PaddleProd
 
             images = p.get("images") or []
             image_url = images[0]["src"] if images and images[0].get("src") else None
+            description = p.get("body_html") or None
 
             products.append(
                 PaddleProduct(
@@ -73,6 +74,7 @@ def fetch_shopify_products(store_url: str, timeout: int = 10) -> list[PaddleProd
                     slug=handle,
                     imageUrl=image_url,
                     productUrl=f"{store_url.rstrip('/')}/products/{handle}",
+                    description=description,
                     price=price,
                     tags=(
                         p["tags"] if isinstance(p.get("tags"), list)

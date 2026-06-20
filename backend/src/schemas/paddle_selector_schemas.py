@@ -43,6 +43,7 @@ class ProductResponse(BaseModel):
     id: str
     name: str
     slug: str
+    description: str | None = None
     imageUrl: str | None
     productUrl: str | None
     price: float | None

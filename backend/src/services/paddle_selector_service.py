@@ -81,6 +81,7 @@ class PaddleSelectorService:
             if pr.product:
                 product_resp = ProductResponse(
                     id=pr.product.id, name=pr.product.name, slug=pr.product.slug,
+                    description=pr.product.description,
                     imageUrl=pr.product.imageUrl, productUrl=pr.product.productUrl,
                     price=pr.product.price, tags=pr.product.tags,
                 )

@@ -99,6 +99,7 @@ class PaddleProduct(BaseModel):
     id: str
     name: str
     slug: str
+    description: str | None = None
     imageUrl: str | None = None
     productUrl: str | None = None
     price: float | None = None

@@ -259,6 +259,7 @@ class ChatService:
                 id=p.id,
                 name=p.name,
                 slug=p.slug,
+                description=p.description,
                 imageUrl=p.imageUrl,
                 productUrl=p.productUrl,
                 price=p.price,
